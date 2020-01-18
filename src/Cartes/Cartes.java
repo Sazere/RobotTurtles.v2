@@ -1,5 +1,7 @@
 package Cartes;
 
-public class Cartes {
+public abstract class Cartes {
+	
+	
 
-}
+} 
