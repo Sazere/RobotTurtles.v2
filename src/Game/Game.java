@@ -23,6 +23,16 @@ public class Game {
 		}
 
 
+	public void Menu() {
+		System.out.println("D�but d'une nouvelle partie de Robot Turtles ! \n"
+						+"Cr�er une parti de: "
+						+ "(1) 2 Joueurs"
+						+ "(2) 3 Joueurs"
+						+ "(3) 4 Joeurs")
+		;
+	}
+		
+
 	public void start() {
 		System.out.println("Début d'une nouvelle partie de Robot Turtles !");
 		System.out.println("Cette partie est à " + joueurs.size() + " joueurs.");

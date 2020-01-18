@@ -2,8 +2,8 @@ package Game;
 
 public class Plateau {
 
+
 	int nbrJoueur = Menu.getNbrJoueur();
-	
 	private char[][] plateauConsole = new char[8][8];
 	
 	public void InitPlateau()

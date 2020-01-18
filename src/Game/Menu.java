@@ -3,6 +3,7 @@ import java.util.*;
 
 public class Menu {
 
+
 	private static int nombreJoueur;
 	Scanner scanner = new Scanner(System.in);
 	
