@@ -18,24 +18,15 @@ public class Game {
 	public Game(int nombreJoueur) {
 		for(int i=0;i<nombreJoueur;i++) {
 			this.joueurs.add(new Joueur(i+1));
-			//System.out.println("Joueur " +joueurs.get(i).getJoueur());
+			System.out.println("Joueur " +joueurs.get(i).getJoueur());
 			}
 		}
 
-
-	public void Menu() {
-		System.out.println("D�but d'une nouvelle partie de Robot Turtles ! \n"
-						+"Cr�er une parti de: "
-						+ "(1) 2 Joueurs"
-						+ "(2) 3 Joueurs"
-						+ "(3) 4 Joeurs")
-		;
-	}
+	
 		
-
 	public void start() {
-		System.out.println("Début d'une nouvelle partie de Robot Turtles !");
-		System.out.println("Cette partie est à " + joueurs.size() + " joueurs.");
+		int nombreJoueur = joueurs.size();
+		
 		System.out.println("C'est au tour du Joueur 1.");
 		System.out.println("Que souhaitez-vous faire pendant ce tour ?");
 		System.out.println("(1) Compléter le programme \n(2) Construire un mur \n(3) Exécuter le programme");
