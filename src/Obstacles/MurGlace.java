@@ -1,6 +1,6 @@
 package Obstacles;
 
-public class MurGlace {
+public class MurGlace extends Obstacle{
 	
 	
 	public MurGlace() {

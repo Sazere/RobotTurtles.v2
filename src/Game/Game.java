@@ -9,7 +9,7 @@ import Joueur.Joueur;
 
 public class Game {
 
-	public static int nbrJoueur;
+	public int nbrJoueur;
 	public int input;
 	
 	Scanner scanner = new Scanner(System.in);
@@ -18,19 +18,11 @@ public class Game {
 	public Game(int nombreJoueur) {
 		for(int i=0;i<nombreJoueur;i++) {
 			this.joueurs.add(new Joueur(i+1));
-			System.out.println("Joueur " +joueurs.get(i).getJoueur());
+			//System.out.println("Joueur " +joueurs.get(i).getJoueur());
 			}
 		}
 
-	public void Menu() {
-		System.out.println("Début d'une nouvelle partie de Robot Turtles ! \n"
-						+"Créer une parti de: "
-						+ "(1) 2 Joueurs"
-						+ "(2) 3 Joueurs"
-						+ "(3) 4 Joeurs")
-		;
-	}
-		
+
 	public void start() {
 		System.out.println("DÃ©but d'une nouvelle partie de Robot Turtles !");
 		System.out.println("Cette partie est Ã  " + joueurs.size() + " joueurs.");
