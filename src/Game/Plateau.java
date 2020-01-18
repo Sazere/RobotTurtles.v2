@@ -48,18 +48,22 @@ public class Plateau {
 				nbrCase+=1;				
 			}			
 		}
+		System.out.print("-------------------------- \n");
 		for(int y = 0 ; y < 8 ; y++){
 			System.out.print('|');
 			for(int x = 0 ; x < 8 ; x++){
 				System.out.print(" " + plateauConsole[x][y] + " ");
 			}
 			System.out.print('|');
+
 			System.out.println();
 			Game game = new Game(Menu.getNbrJoueur());
 			System.out.println("Cette partie est à " +Menu.getNbrJoueur()+ "joueurs.");
 			game.start();
 		
 			}		
+
+
 	}
 	private void plateau3Joueurs(){
 		int nbrCase = 0;
