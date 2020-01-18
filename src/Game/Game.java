@@ -2,13 +2,22 @@ package Game;
 
 import java.util.*;
 
+import Joueur.Joueur;
+
+
+
 public class Game {
+
 	
 	Scanner scanner = new Scanner(System.in);
+	ArrayList<Joueur> joueurs = new ArrayList<Joueur>();
 	
-	public Game() {
-		
-	}
+	public Game(int nombreJoueur) {
+		for(int i=0;i<nombreJoueur;i++) {
+			this.joueurs.add(new Joueur(i+1));
+			System.out.println("Joueur " +joueurs.get(i).getJoueur());
+			}
+		}
 	
 	public void start() {
 		System.out.println("Début d'une nouvelle partie de Robot Turtles !");
@@ -19,7 +28,7 @@ public class Game {
 		int choixMenu = scanner.nextInt();	
 		switch (choixMenu) {
 		case 1:
-			completerProgramme();
+			//completerProgramme();
 		case 2:
 			//construireMur();
 		case 3:
