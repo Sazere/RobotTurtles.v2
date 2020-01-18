@@ -5,7 +5,7 @@ import javax.swing.JFrame;
 
 public class Plateau {
 
-	int nbrJoueur = Game.nbrJoueur;
+	int nbrJoueur = menu.getChoixMenu();
 	private char[][] plateauConsole = new char[8][8];
 	
 	public void Plateau()

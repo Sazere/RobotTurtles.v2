@@ -9,7 +9,7 @@ import Joueur.Joueur;
 
 public class Game {
 
-	public static int nbrJoueur;
+	public int nbrJoueur;
 	public int input;
 	
 	Scanner scanner = new Scanner(System.in);
@@ -23,8 +23,8 @@ public class Game {
 		}
 
 	public void Menu() {
-		System.out.println("Début d'une nouvelle partie de Robot Turtles ! \n"
-						+"Créer une parti de: "
+		System.out.println("Dï¿½but d'une nouvelle partie de Robot Turtles ! \n"
+						+"Crï¿½er une parti de: "
 						+ "(1) 2 Joueurs"
 						+ "(2) 3 Joueurs"
 						+ "(3) 4 Joeurs")
