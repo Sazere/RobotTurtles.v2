@@ -48,6 +48,7 @@ public class Plateau {
 				nbrCase+=1;				
 			}			
 		}
+		System.out.print("-------------------------- \n");
 		for(int y = 0 ; y < 8 ; y++){
 			System.out.print('|');
 			for(int x = 0 ; x < 8 ; x++){
@@ -55,6 +56,7 @@ public class Plateau {
 			}
 			System.out.print('|');
 			System.out.println();}		
+		System.out.print("-------------------------- \n");
 	}
 	private void plateau3Joueurs(){
 		int nbrCase = 0;
