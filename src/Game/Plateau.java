@@ -55,13 +55,11 @@ public class Plateau {
 				System.out.print(" " + plateauConsole[x][y] + " ");
 			}
 			System.out.print('|');
-
-			System.out.println();
-			Game game = new Game(Menu.getNbrJoueur());
-			System.out.println("Cette partie est à " +Menu.getNbrJoueur()+ "joueurs.");
-			game.start();
-		
-			}		
+			System.out.println();				
+			}
+		Game game = new Game(Menu.getNbrJoueur());
+		System.out.println("Cette partie est à " +Menu.getNbrJoueur()+ "joueurs.");
+		game.start();
 
 
 	}
@@ -112,9 +110,10 @@ public class Plateau {
 			}
 			System.out.print('|');
 			System.out.println();
-			Game game = new Game(Menu.getNbrJoueur());
-			System.out.println("Cette partie est à " +Menu.getNbrJoueur()+ "joueurs.");
-			game.start();}
+			}
+		Game game = new Game(Menu.getNbrJoueur());
+		System.out.println("Cette partie est à " +Menu.getNbrJoueur()+ "joueurs.");
+		game.start();
 	}
 	private void plateau4Joueurs(){
 	
@@ -167,9 +166,10 @@ public class Plateau {
 			}
 			System.out.print('|');
 			System.out.println();
-			Game game = new Game(Menu.getNbrJoueur());
-			System.out.println("Cette partie est à " +Menu.getNbrJoueur()+ "joueurs.");
-			game.start();}
+			}
+		Game game = new Game(Menu.getNbrJoueur());
+		System.out.println("Cette partie est à " +Menu.getNbrJoueur()+ "joueurs.");
+		game.start();
 	}
 
 }
