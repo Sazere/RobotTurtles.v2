@@ -57,6 +57,7 @@ public class Plateau {
 			System.out.print('|');
 			System.out.println();				
 			}
+		System.out.print("-------------------------- \n");
 		Game game = new Game(Menu.getNbrJoueur());
 		System.out.println("Cette partie est à " +Menu.getNbrJoueur()+ "joueurs.");
 		game.start();
@@ -103,6 +104,7 @@ public class Plateau {
 			}
 			
 		}
+		System.out.print("-------------------------- \n");
 		for(int y = 0 ; y < 8 ; y++){
 			System.out.print('|');
 			for(int x = 0 ; x < 8 ; x++){
@@ -110,7 +112,9 @@ public class Plateau {
 			}
 			System.out.print('|');
 			System.out.println();
+			
 			}
+		System.out.print("-------------------------- \n");
 		Game game = new Game(Menu.getNbrJoueur());
 		System.out.println("Cette partie est à " +Menu.getNbrJoueur()+ "joueurs.");
 		game.start();
@@ -159,6 +163,7 @@ public class Plateau {
 			}
 			
 		}
+		System.out.print("-------------------------- \n");
 		for(int y = 0 ; y < 8 ; y++){
 			System.out.print('|');
 			for(int x = 0 ; x < 8 ; x++){
@@ -167,6 +172,7 @@ public class Plateau {
 			System.out.print('|');
 			System.out.println();
 			}
+		System.out.print("-------------------------- \n");
 		Game game = new Game(Menu.getNbrJoueur());
 		System.out.println("Cette partie est à " +Menu.getNbrJoueur()+ "joueurs.");
 		game.start();
