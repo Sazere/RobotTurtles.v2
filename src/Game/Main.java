@@ -8,8 +8,8 @@ public class Main {
 		menu.startMenu();
 		Plateau plateau = new Plateau();
 		plateau.InitPlateau();
-		//Game game = new Game(Menu.getNbrJoueur());
-		//game.start();
+		Game game = new Game(Menu.getNbrJoueur());
+		game.start();
 	}
 
 }
