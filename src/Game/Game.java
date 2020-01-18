@@ -26,22 +26,37 @@ public class Game {
 		
 	public void start() {
 		int nombreJoueur = joueurs.size();
+		int compteur = 1;
+		while(true) {
+			System.out.println("C'est au tour du Joueur " + compteur);
+			System.out.println("Que souhaitez-vous faire pendant ce tour ?");
+			System.out.println("(1) Compléter le programme \n(2) Construire un mur \n(3) Exécuter le programme");
+			int choixMenu = scanner.nextInt();	
+			switch (choixMenu) {
+			case 1:
+				System.out.println("test");
+				//completerProgramme();
+				break;
+			case 2:
+				//construireMur();
+				break;
+			case 3:
+				//executerProgramme();
+				//verificationVictoire();
+				break;
+				}
+			//Joueur.defausser();
 		
-		System.out.println("C'est au tour du Joueur 1.");
-		System.out.println("Que souhaitez-vous faire pendant ce tour ?");
-		System.out.println("(1) Compléter le programme \n(2) Construire un mur \n(3) Exécuter le programme");
-		int choixMenu = scanner.nextInt();	
-		switch (choixMenu) {
-		case 1:
-			//completerProgramme();
-		case 2:
-			//construireMur();
-		case 3:
-			//executerProgramme();
-;			
+		if(compteur % nombreJoueur == 0) {
+			compteur = 0;
+		}
+		compteur++;
+		
 		}
 		
 
 
 	}
+	
+	
 }
