@@ -1,5 +1,7 @@
 package Game;
 
+import Joueur.Tortue;
+
 public class Plateau {
 
 
@@ -55,10 +57,11 @@ public class Plateau {
 				System.out.print(" " + plateauConsole[x][y] + " ");
 			}
 			System.out.print('|');
-			System.out.println();				
+			System.out.println();
 			}
-		System.out.print("-------------------------- \n");
 		Game game = new Game(Menu.getNbrJoueur());
+		Tortue tortueBleue = new Tortue("Bleue");
+		Tortue tortueRouge = new Tortue("Rouge");
 		System.out.println("Cette partie est à " +Menu.getNbrJoueur()+ "joueurs.");
 		game.start();
 
@@ -112,10 +115,12 @@ public class Plateau {
 			}
 			System.out.print('|');
 			System.out.println();
-			
 			}
-		System.out.print("-------------------------- \n");
 		Game game = new Game(Menu.getNbrJoueur());
+		Tortue tortueBleue = new Tortue("Bleue");
+		Tortue tortueRouge = new Tortue("Rouge");
+		Tortue tortueViolette = new Tortue("Violette");
+
 		System.out.println("Cette partie est à " +Menu.getNbrJoueur()+ "joueurs.");
 		game.start();
 	}
@@ -172,8 +177,13 @@ public class Plateau {
 			System.out.print('|');
 			System.out.println();
 			}
-		System.out.print("-------------------------- \n");
+
+
 		Game game = new Game(Menu.getNbrJoueur());
+		Tortue tortueBleue = new Tortue("Bleue");
+		Tortue tortueRouge = new Tortue("Rouge");
+		Tortue tortueViolette = new Tortue("Violette");
+		Tortue tortueMarron= new Tortue("Marron");
 		System.out.println("Cette partie est à " +Menu.getNbrJoueur()+ "joueurs.");
 		game.start();
 	}
