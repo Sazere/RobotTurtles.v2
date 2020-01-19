@@ -48,30 +48,36 @@ public class Joueur {
 	
 	public void defausser() {
 		System.out.println("Voulez-vous défausser le reste de vos cartes ?");
-		scanner.nextLine();
-		String reponseDefausse = scanner.nextLine();
-		if (reponseDefausse == "Oui") {
-		
+		System.out.println("(1) Oui \n(2) Non");
+		int reponseDefausse = scanner.nextInt();
+		switch(reponseDefausse) {
+		case 1:
 			setMain(new ArrayList<>());
 			for (int n=0;n<5;n++) {
 				this.main.add(pioche.get(0));
 				this.defausse.add(pioche.get(0));
-				this.pioche.remove(pioche.get(0)); //créer un getteur pour main puis faire deck.getmain
-					}
-			
-		if (reponseDefausse == "Non") {
+				this.pioche.remove(pioche.get(0));
+			}
+			break;
+					
+		case 2:
 			for ( int i = this.main.size();i<5;i++) {
 				this.main.add(pioche.get(0));
 				this.defausse.add(pioche.get(0));
 				this.pioche.remove(pioche.get(0));
-				break;
 				}
-		//afficherMain(ButtonGrid2.Joueur1);
-			}
-		 
+			break;
+	
+		default:
 			System.out.println("Veuillez répondre par oui ou par non.");
 			defausser();
 			}
+		}
+	
+	public void completerProgramme() {
+		System.out.println("Quelle carte souhaitez-vous ajouter à votre programme ?");
+		System.out.println("Main :" + this.main);
+		System.out.println("(1) Première carte \n(2) Deuxième Carte \n(3) Troisième carte \n Quatrième carte");
 		
 	}
 	

@@ -18,7 +18,7 @@ public class Game {
 	public Game(int nombreJoueur) {
 		for(int i=0;i<nombreJoueur;i++) {
 			this.joueurs.add(new Joueur(i+1));
-			//System.out.println("Joueur " +joueurs.get(i).getJoueur());
+			System.out.println("Joueur " +joueurs.get(i).getJoueur());
 			}
 		}
 
@@ -27,7 +27,7 @@ public class Game {
 						+"Cr�er une parti de: "
 						+ "(1) 2 Joueurs"
 						+ "(2) 3 Joueurs"
-						+ "(3) 4 Joeurs")
+						+ "(3) 4 Joueurs")
 		;
 	}
 		
@@ -43,8 +43,22 @@ public class Game {
 			int choixMenu = scanner.nextInt();	
 			switch (choixMenu) {
 			case 1:
-				System.out.println("test");
-				//completerProgramme();
+				System.out.println(joueurs.get(compteur-1).getMain());
+				System.out.println("Quelle carte souhaitez-vous ajouter à votre programme ?");
+				System.out.println("(1) Première carte \n(2) Deuxième Carte \n(3) Troisième carte \n(4) Quatrième carte \n(5) Cinquième carte");
+				int choixCarte = scanner.nextInt();
+				switch(choixCarte) {
+				case 1:
+					joueurs.get(compteur-1).programme.add(joueurs.get(compteur-1).getMain().get(0));
+				case 2:
+					joueurs.get(compteur-1).programme.add(joueurs.get(compteur-1).getMain().get(1));
+				case 3:
+					joueurs.get(compteur-1).programme.add(joueurs.get(compteur-1).getMain().get(2));
+				case 4:
+					joueurs.get(compteur-1).programme.add(joueurs.get(compteur-1).getMain().get(3));
+				case 5:
+					joueurs.get(compteur-1).programme.add(joueurs.get(compteur-1).getMain().get(4));
+				}
 				break;
 			case 2:
 				//construireMur();
