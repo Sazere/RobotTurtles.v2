@@ -2,6 +2,10 @@ package Joueur;
 
 import java.util.*;
 
+import Cartes.BlueCard;
+import Game.Game;
+import Game.Plateau;
+
 
 //import projet.Pioche;
 
@@ -13,6 +17,7 @@ public class Joueur {
 	private ArrayList<Character> pioche = new ArrayList<Character>();
 	private ArrayList<Character> main = new ArrayList<Character>();
 	private ArrayList<Character> defausse = new ArrayList<Character>();
+	
 	
 	public Joueur(int numeroJoueur) {
 		
