@@ -56,7 +56,7 @@ public class Game {
 					tortues.get(1).setId('R');
 					tortues.get(1).setCouleurTortue("Rouge");
 				}
-				if(i == 3) {
+				if(i == 2) {
 					tortues.get(2).setDirection(0);
 					//tortues.get(2).setPosition(0,6);
 					tortues.get(2).setNumeroCase(6);
