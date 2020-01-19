@@ -1,9 +1,10 @@
 package Joueur;
 
+import java.awt.Point;
+
 public class Tortue {
 
-	int positionLigne;
-	int positionColonne;
+	Point position;
 	int direction;
 	String couleurTortue;
 	
