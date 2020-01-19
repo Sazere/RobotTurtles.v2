@@ -62,7 +62,7 @@ public class Plateau {
 		Game game = new Game(Menu.getNbrJoueur());
 		Tortue tortueBleue = new Tortue("Bleue");
 		Tortue tortueRouge = new Tortue("Rouge");
-		System.out.println("Cette partie est à " +Menu.getNbrJoueur()+ "joueurs.");
+		System.out.println("Cette partie est à " +Menu.getNbrJoueur()+ " joueurs.");
 		game.start();
 
 
@@ -121,7 +121,7 @@ public class Plateau {
 		Tortue tortueRouge = new Tortue("Rouge");
 		Tortue tortueViolette = new Tortue("Violette");
 
-		System.out.println("Cette partie est à " +Menu.getNbrJoueur()+ "joueurs.");
+		System.out.println("Cette partie est à " +Menu.getNbrJoueur()+ " joueurs.");
 		game.start();
 	}
 	private void plateau4Joueurs(){
@@ -184,7 +184,7 @@ public class Plateau {
 		Tortue tortueRouge = new Tortue("Rouge");
 		Tortue tortueViolette = new Tortue("Violette");
 		Tortue tortueMarron= new Tortue("Marron");
-		System.out.println("Cette partie est à " +Menu.getNbrJoueur()+ "joueurs.");
+		System.out.println("Cette partie est à " +Menu.getNbrJoueur()+ " joueurs.");
 		game.start();
 	}
 
