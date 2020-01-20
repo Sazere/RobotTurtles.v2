@@ -1,7 +1,5 @@
 package Cartes;
 
-import java.awt.Point;
-
 import Game.Plateau;
 import Joueur.Tortue;
 
@@ -105,7 +103,5 @@ public class Cartes {
 			}	
 			System.out.println("Je tourne à droite");
 		}
-		//Plateau.actualiser2Joueurs(tortue);
-		Plateau.plateau2Joueurs();
 	}
 } 

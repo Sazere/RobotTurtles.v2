@@ -1,6 +1,9 @@
 package Game;
 
 import java.util.*;
+
+import Cartes.Cartes;
+import Cartes.Cartes.Type;
 import Joueur.Joueur;
 import Joueur.Tortue;
 
@@ -127,6 +130,9 @@ public class Game {
 		case 2:
 			//construireMur();
 		case 3:
+			Cartes bleue = new Cartes(Type.Avancer);
+			bleue.execute(bleue, Game.tortues.get(1));
+			Plateau.plateau2Joueurs();
 			//executerProgramme();
 ;			
 		}

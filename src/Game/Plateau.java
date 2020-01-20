@@ -1,6 +1,8 @@
 package Game;
 
 
+import Cartes.Cartes;
+import Cartes.Cartes.Type;
 import Joueur.Tortue;
 
 public class Plateau {
@@ -60,7 +62,7 @@ public class Plateau {
 			System.out.print('|');
 			System.out.println();				
 			}
-		game.start();
+		game.start();	
 	}
 	public static void actualiser2Joueurs(Tortue nomTortue){
 		
@@ -99,6 +101,7 @@ public class Plateau {
 			}
 		System.out.print("-------------------------- \n");
 		game.start();
+		
 	}
 	
 	private void plateau3Joueurs(){
