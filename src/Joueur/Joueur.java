@@ -2,14 +2,15 @@ package Joueur;
 
 import java.util.*;
 
+
 import Obstacles.MurGlace;
 import Obstacles.MurPierres;
 
 
-//import projet.Pioche;
+
 
 public class Joueur {
-	
+		
 	Scanner scanner = new Scanner(System.in);
 	private int numeroJoueur;
 	private ArrayList<Character> programme = new ArrayList<Character>();
