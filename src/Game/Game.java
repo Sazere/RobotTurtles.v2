@@ -50,6 +50,7 @@ public class Game {
 					System.out.println("Voici votre main : " + joueurs.get(compteur-1).getMain());
 					System.out.println("Quelle carte souhaitez-vous ajouter à votre programme ? Tapez 0 si vous ne voulez plus ajouter de cartes.");
 					System.out.println("(1) Première carte \n(2) Deuxième carte \n(3) Troisième carte \n(4) Quatrième carte \n(5) Cinquième carte");
+					//Les cartes que l'on ajoute aux programmes sont remplacées par des 'O' dans la main, il faut éviter de mettre un 'O' dans le programme.
 					int choixCarte = scanner.nextInt();
 					switch(choixCarte) {
 					case 0:
