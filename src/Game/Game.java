@@ -278,6 +278,10 @@ public class Game {
 			
 		}			
 	}
+	
+	public void executerProgramme() {
+		
+	}
 	/*public void defausser() {
 		System.out.println("Voulez-vous défausser le reste de vos cartes ?");
 		System.out.println("(1) Oui \n(2) Non");
