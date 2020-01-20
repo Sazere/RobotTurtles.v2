@@ -2,11 +2,6 @@ package Game;
 
 
 import Joueur.Tortue;
-import java.awt.Point;
-
-import Cartes.BlueCard;
-import Cartes.Cartes;
-import Cartes.Cartes.Type;
 
 public class Plateau {
 
@@ -30,7 +25,6 @@ public class Plateau {
 	}
 	public static void plateau2Joueurs(){
 		
-		System.out.println("Plateau 2 joueur: tortue B en : " + Game.tortues.get(0).getNumeroCase());
 		int nbrCase = 0;
 		for(int y=0; y<8; y++){
 			for(int x=0; x<8; x++){				
@@ -67,12 +61,9 @@ public class Plateau {
 			System.out.println();				
 			}
 		game.start();
-		Cartes bleue = new Cartes(Type.RotationGauche);
-		bleue.execute(bleue, Game.tortues.get(0));
 	}
 	public static void actualiser2Joueurs(Tortue nomTortue){
 		
-		int newDirection = nomTortue.getDirection();
 		int caseActuelle = nomTortue.getNumeroCase();
 		String id = nomTortue.getId();
 		int nbrCase = 0;
@@ -95,8 +86,7 @@ public class Plateau {
 					plateauConsole[x][y] = ".";
 				}							
 				nbrCase+=1;				
-			}
-			
+			}	
 		}
 		System.out.print("-------------------------- \n");
 		for(int y = 0 ; y < 8 ; y++){
@@ -109,9 +99,8 @@ public class Plateau {
 			}
 		System.out.print("-------------------------- \n");
 		game.start();
-		Cartes bleue = new Cartes(Type.RotationGauche);
-		bleue.execute(bleue, Game.tortues.get(0));
 	}
+	
 	private void plateau3Joueurs(){
 		Game game = new Game(Menu.getNbrJoueur());
 		int nbrCase = 0;
@@ -161,7 +150,6 @@ public class Plateau {
 			System.out.print('|');
 			System.out.println();
 			}
-
 		game.start();
 	}
 	private void plateau4Joueurs(){
@@ -201,12 +189,9 @@ public class Plateau {
 				else
 				{
 					plateauConsole[x][y] = ".";
-				}
-								
-				nbrCase+=1;
-				
-			}
-			
+				}							
+				nbrCase+=1;		
+			}			
 		}
 		for(int y = 0 ; y < 8 ; y++){
 			System.out.print('|');
@@ -216,7 +201,6 @@ public class Plateau {
 			System.out.print('|');
 			System.out.println();
 			}
-
 		game.start();
 	}
 

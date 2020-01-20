@@ -33,7 +33,7 @@ public class Cartes {
 		int colonne = tortue.getColonne();
 		int ligne = tortue.getLigne();
 		int numeroCase = tortue.getNumeroCase();
-		String id = tortue.getId();
+		
 		if(type == Type.Avancer) {
 					
 			if(direction == 1 && ligne < 7 ) 

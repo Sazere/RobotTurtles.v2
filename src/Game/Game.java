@@ -1,13 +1,8 @@
 package Game;
 
-
 import java.util.*;
-
-import Cartes.BlueCard;
 import Joueur.Joueur;
 import Joueur.Tortue;
-
-
 
 public class Game {
 
@@ -22,7 +17,7 @@ public class Game {
 	public Game(int nombreJoueur) {
 		for(int i=0;i<nombreJoueur;i++) {
 			this.joueurs.add(new Joueur(i+1));
-			this.tortues.add(new Tortue());
+			tortues.add(new Tortue());
 			if(nombreJoueur == 2)
 			{
 				if(i == 0) {

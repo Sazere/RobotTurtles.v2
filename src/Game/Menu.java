@@ -2,8 +2,7 @@ package Game;
 import java.util.*;
 
 public class Menu {
-
-
+	
 	private static int nombreJoueur;
 	Scanner scanner = new Scanner(System.in);
 	
@@ -18,6 +17,7 @@ public class Menu {
 		return nombreJoueur;
 	}
 
+	
 	public static int getNbrJoueur() {
 		return nombreJoueur;
 	}
