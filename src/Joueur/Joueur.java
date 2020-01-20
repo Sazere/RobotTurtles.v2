@@ -2,6 +2,9 @@ package Joueur;
 
 import java.util.*;
 
+import Obstacles.MurGlace;
+import Obstacles.MurPierres;
+
 
 //import projet.Pioche;
 
@@ -13,6 +16,10 @@ public class Joueur {
 	private ArrayList<Character> pioche = new ArrayList<Character>();
 	private ArrayList<Character> main = new ArrayList<Character>();
 	private ArrayList<Character> defausse = new ArrayList<Character>();
+	/*private ArrayList<MurPierres> mursPierre = new ArrayList<MurPierres>();
+	private ArrayList<MurGlace> mursGlace = new ArrayList<MurGlace>();*/
+	private ArrayList<Character> mursPierre = new ArrayList<Character>();
+	private ArrayList<Character> mursGlace = new ArrayList<Character>();
 	
 	public Joueur(int numeroJoueur) {
 		
@@ -34,46 +41,81 @@ public class Joueur {
 			k++;
 		}
 		Collections.shuffle(this.pioche);
-		System.out.println("Deck :" + this.pioche);
+		//System.out.println("Deck :" + this.pioche);
 		for (int l=0;l<5;l++) {
 			this.main.add(pioche.get(0));
 			this.defausse.add(pioche.get(0));
 			this.pioche.remove(pioche.get(0)); 
 			}
-		System.out.println("Deck après ajout de la main :" + this.pioche);
+		this.mursPierre.add('M');
+		this.mursPierre.add('M');
+		this.mursPierre.add('M');
+		this.mursGlace.add('G');
+		this.mursGlace.add('G');
+		/*System.out.println("Deck après ajout de la main :" + this.pioche);
 		System.out.println("Défausse :" + this.defausse);
-		System.out.println("Main :" + this.main);
+		System.out.println("Main :" + this.main);*/
 		
 	}
 	
 	public void defausser() {
-		System.out.println("Voulez-vous défausser le reste de vos cartes ?");
-		scanner.nextLine();
-		String reponseDefausse = scanner.nextLine();
-		if (reponseDefausse == "Oui") {
 		
+		System.out.println("Voulez-vous défausser le reste de vos cartes ?");
+		System.out.println("(1) Oui \n(2) Non");
+		int reponseDefausse = scanner.nextInt();
+		switch(reponseDefausse) {
+		case 1:
 			setMain(new ArrayList<>());
 			for (int n=0;n<5;n++) {
-				this.main.add(pioche.get(0));
-				this.defausse.add(pioche.get(0));
-				this.pioche.remove(pioche.get(0)); //créer un getteur pour main puis faire deck.getmain
-					}
-			
-		if (reponseDefausse == "Non") {
-			for ( int i = this.main.size();i<5;i++) {
+				if (this.pioche.isEmpty()==true) {
+					Collections.shuffle(this.defausse);
+					this.pioche = this.defausse;
+					this.defausse.clear();
+				}
 				this.main.add(pioche.get(0));
 				this.defausse.add(pioche.get(0));
 				this.pioche.remove(pioche.get(0));
-				break;
-				}
-		//afficherMain(ButtonGrid2.Joueur1);
 			}
-		 
-			System.out.println("Veuillez répondre par oui ou par non.");
+			System.out.println(this.main);
+			break;
+					
+		case 2:
+			for (int i = 0;i<5;i++) {
+				if(this.pioche.isEmpty()==true) {
+					Collections.shuffle(this.defausse);
+					this.pioche = this.defausse;
+					this.defausse.clear();
+				}
+				if(this.main.get(i) == 'O') {
+				this.main.set(i,pioche.get(0));
+				this.defausse.add(pioche.get(0));
+				this.pioche.remove(pioche.get(0));
+				}
+				
+				}
+			System.out.println(this.main);
+			break;
+	
+		default:
+			System.out.println("Veuillez répondre par (1) ou par (2).");
 			defausser();
 			}
+		}
 		
-	}
+		public void verificationPioche() {
+			if (this.pioche.isEmpty() == true) {
+				Collections.shuffle(this.defausse);
+				this.pioche = this.defausse;
+				this.defausse.clear();
+			}
+			
+		}
+	/*public void completerProgramme() {
+		System.out.println("Quelle carte souhaitez-vous ajouter à votre programme ?");
+		System.out.println("Main :" + this.main);
+		System.out.println("(1) Première carte \n(2) Deuxième Carte \n(3) Troisième carte \n Quatrième carte");
+		
+	}*/
 	
 	public void setMain(ArrayList<Character> nouvelleMain) {
 		this.main = nouvelleMain;
