@@ -3,21 +3,34 @@ package Joueur;
 import java.awt.Point;
 
 public class Tortue {
-
 	
 	Point position;
+	int colonne;
+	int ligne;
 	int numeroCase;
 	int direction;
-	char id;
+	String id;
 	String couleurTortue;
 	
 	public Tortue() {
 		
 	}
-	
-	public Point getPosition() {
-		return position;
+	public int getColonne() {
+		return colonne;
 	}
+
+	public void setColonne(int colonne) {
+		this.colonne = colonne;
+	}
+
+	public int getLigne() {
+		return ligne;
+	}
+
+	public void setLigne(int ligne) {
+		this.ligne = ligne;
+	}
+
 
 	public int getNumeroCase() {
 		return numeroCase;
@@ -25,12 +38,6 @@ public class Tortue {
 
 	public void setNumeroCase(int numeroCase) {
 		this.numeroCase = numeroCase;
-	}
-
-	public void setPosition(int x, int y) {
-		this.position.x = x;
-		this.position.y = y;
-
 	}
 
 	public int getDirection() {
@@ -41,11 +48,11 @@ public class Tortue {
 		this.direction = direction;
 	}
 
-	public char getId() {
+	public String getId() {
 		return id;
 	}
 
-	public void setId(char id) {
+	public void setId(String id) {
 		this.id = id;
 	}
 

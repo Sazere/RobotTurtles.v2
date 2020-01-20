@@ -4,11 +4,15 @@ package Game;
 import Joueur.Tortue;
 import java.awt.Point;
 
+import Cartes.BlueCard;
+import Cartes.Cartes;
+import Cartes.Cartes.Type;
+
 public class Plateau {
 
-
+	public static Game game = new Game(Menu.getNbrJoueur());
 	int nbrJoueur = Menu.getNbrJoueur();
-	public static char[][] plateauConsole = new char[8][8];
+	public static String[][] plateauConsole = new String[8][8];
 	
 	public void InitPlateau()
 	{
@@ -24,18 +28,19 @@ public class Plateau {
 			break;			
 		}
 	}
-	private void plateau2Joueurs(){
-		Game game = new Game(Menu.getNbrJoueur());
+	public static void plateau2Joueurs(){
+		
+		System.out.println("Plateau 2 joueur: tortue B en : " + Game.tortues.get(0).getNumeroCase());
 		int nbrCase = 0;
 		for(int y=0; y<8; y++){
 			for(int x=0; x<8; x++){				
 				if(x%7 == 0 && x!=0)
 				{					
-					plateauConsole[x][y] = 'M';					
+					plateauConsole[x][y] = "M";					
 				}				
 				else if(nbrCase == 59)
 				{					
-					plateauConsole[x][y] = 'O';
+					plateauConsole[x][y] = "O";
 				}
 				else if(nbrCase == Game.tortues.get(0).getNumeroCase())
 				{						
@@ -47,7 +52,7 @@ public class Plateau {
 				}
 				else
 				{
-					plateauConsole[x][y] = '.';
+					plateauConsole[x][y] = ".";
 				}							
 				nbrCase+=1;				
 			}			
@@ -62,24 +67,24 @@ public class Plateau {
 			System.out.println();				
 			}
 		game.start();
-		
+		Cartes bleue = new Cartes(Type.RotationGauche);
+		bleue.execute(bleue, Game.tortues.get(0));
 	}
-	private void actualiser2Joueurs(Tortue nomTortue){
+	public static void actualiser2Joueurs(Tortue nomTortue){
 		
 		int newDirection = nomTortue.getDirection();
-		Point newPosition = nomTortue.getPosition();
 		int caseActuelle = nomTortue.getNumeroCase();
-		char id = nomTortue.getId();
+		String id = nomTortue.getId();
 		int nbrCase = 0;
 		for(int y=0; y<8; y++){
 			for(int x=0; x<8; x++){				
 				if(x%7 == 0 && x!=0)
 				{					
-					plateauConsole[x][y] = 'M';					
+					plateauConsole[x][y] = "M";					
 				}				
 				else if(nbrCase == 59)
 				{					
-					plateauConsole[x][y] = 'O';
+					plateauConsole[x][y] = "O";
 				}
 				else if(nbrCase == caseActuelle)
 				{
@@ -87,10 +92,11 @@ public class Plateau {
 				}
 				else
 				{
-					plateauConsole[x][y] = '.';
+					plateauConsole[x][y] = ".";
 				}							
 				nbrCase+=1;				
-			}			
+			}
+			
 		}
 		System.out.print("-------------------------- \n");
 		for(int y = 0 ; y < 8 ; y++){
@@ -102,6 +108,9 @@ public class Plateau {
 			System.out.println();
 			}
 		System.out.print("-------------------------- \n");
+		game.start();
+		Cartes bleue = new Cartes(Type.RotationGauche);
+		bleue.execute(bleue, Game.tortues.get(0));
 	}
 	private void plateau3Joueurs(){
 		Game game = new Game(Menu.getNbrJoueur());
@@ -110,11 +119,11 @@ public class Plateau {
 			for(int x=0; x<8; x++){				
 				if(x%7 == 0 && x!=0)
 				{					
-					plateauConsole[x][y] = 'M';					
+					plateauConsole[x][y] = "M";					
 				}				
 				else if(nbrCase == 59)
 				{					
-					plateauConsole[x][y] = 'O';
+					plateauConsole[x][y] = "O";
 				}
 				else if(nbrCase == Game.tortues.get(0).getNumeroCase())
 				{		
@@ -122,7 +131,7 @@ public class Plateau {
 				}
 				else if(nbrCase == 56)
 				{		
-					plateauConsole[x][y] = 'O';
+					plateauConsole[x][y] = "O";
 				}
 				else if(nbrCase == Game.tortues.get(1).getNumeroCase())
 				{					
@@ -130,7 +139,7 @@ public class Plateau {
 				}				
 				else if(nbrCase == 62)
 				{					
-					plateauConsole[x][y] = 'O';
+					plateauConsole[x][y] = "O";
 				}
 				else if(nbrCase == Game.tortues.get(2).getNumeroCase())
 				{			
@@ -138,7 +147,7 @@ public class Plateau {
 				}				
 				else
 				{
-					plateauConsole[x][y] = '.';
+					plateauConsole[x][y] = ".";
 				}								
 				nbrCase+=1;				
 			}
@@ -163,7 +172,7 @@ public class Plateau {
 				
 				if(nbrCase == 57)
 				{					
-					plateauConsole[x][y] = 'O';
+					plateauConsole[x][y] = "O";
 				}
 				else if(nbrCase == Game.tortues.get(0).getNumeroCase())
 				{		
@@ -183,15 +192,15 @@ public class Plateau {
 				}				
 				else if(nbrCase == 62)
 				{					
-					plateauConsole[x][y] = 'O';
+					plateauConsole[x][y] = "O";
 				}			
 				else if(nbrCase == 5)
 				{				
-					plateauConsole[x][y] = '2';
+					plateauConsole[x][y] = "2";
 				}
 				else
 				{
-					plateauConsole[x][y] = '.';
+					plateauConsole[x][y] = ".";
 				}
 								
 				nbrCase+=1;
