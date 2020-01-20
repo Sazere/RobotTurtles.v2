@@ -124,6 +124,11 @@ public class Game {
 
 
 		int nombreJoueur = joueurs.size();
+		boolean carte1 = true;
+		boolean carte2 = true;
+		boolean carte3 = true;
+		boolean carte4 = true;
+		boolean carte5 = true;
 		int compteur = 1;
 		while(true) {
 			System.out.println("C'est au tour du Joueur " + compteur);
@@ -137,8 +142,23 @@ public class Game {
 				boolean arretChoixCarte = false;
 				while(arretChoixCarte == false) {
 					System.out.println("Voici votre main : " + joueurs.get(compteur-1).getMain());
-					System.out.println("Quelle carte souhaitez-vous ajouter √† votre programme ? Tapez 0 si vous ne voulez plus ajouter de cartes.");
-					System.out.println("(1) Premi√®re carte \n(2) Deuxi√®me carte \n(3) Troisi√®me carte \n(4) Quatri√®me carte \n(5) Cinqui√®me carte");
+					System.out.println("Quelle carte souhaitez-vous ajouter ‡† votre programme ? Tapez 0 si vous ne voulez plus ajouter de cartes.");
+					if(carte1 == true) {
+						System.out.println("(1) PremiËre carte \n");
+					}
+					if(carte2 == true) {
+						System.out.println("(2) DeuxiËme carte \n");
+					}
+					if(carte3 == true) {
+						System.out.println("(3) TroisiËme carte \n");
+					}
+					if(carte4 == true) {
+						System.out.println("(4) QuatriËme carte \n");
+					}
+					if(carte5 == true) {
+						System.out.println("(5) CinquiËme carte \n");
+					}
+					
 					//Les cartes que l'on ajoute aux programmes sont remplac√©es par des 'O' dans la main, il faut √©viter de mettre un 'O' dans le programme.
 					int choixCarte = scanner.nextInt();
 					switch(choixCarte) {
@@ -146,39 +166,71 @@ public class Game {
 						arretChoixCarte = true;
 						break;
 					case 1:
-						joueurs.get(compteur-1).getProgramme().add(joueurs.get(compteur-1).getMain().get(0));
-						joueurs.get(compteur-1).getMain().set(0,'O');
-						System.out.println(joueurs.get(compteur-1).getMain());
-						System.out.println(joueurs.get(compteur-1).getProgramme());
-						break;
+						if(carte1 == true) {
+							joueurs.get(compteur-1).getProgramme().add(joueurs.get(compteur-1).getMain().get(0));
+							joueurs.get(compteur-1).getMain().set(0,'O');
+							System.out.println(joueurs.get(compteur-1).getMain());
+							System.out.println(joueurs.get(compteur-1).getProgramme());
+							carte1 = false;
+							break;
+						}else {
+							System.out.println("Vous n'avez plus de carte ‡ cet emplacement !");
+							break;
+						}
+						
 					case 2:
-						joueurs.get(compteur-1).getProgramme().add(joueurs.get(compteur-1).getMain().get(1));
-						joueurs.get(compteur-1).getMain().set(1,'O');
-						System.out.println(joueurs.get(compteur-1).getMain());
-						System.out.println(joueurs.get(compteur-1).getProgramme());
-						break;
+						if(carte2 == true) {
+							joueurs.get(compteur-1).getProgramme().add(joueurs.get(compteur-1).getMain().get(1));
+							joueurs.get(compteur-1).getMain().set(1,'O');
+							System.out.println(joueurs.get(compteur-1).getMain());
+							System.out.println(joueurs.get(compteur-1).getProgramme());
+							carte2 = false;
+							break;
+						}else {
+							System.out.println("Vous n'avez plus de carte ‡ cet emplacement !");
+							break;
+						}
 					case 3:
-						joueurs.get(compteur-1).getProgramme().add(joueurs.get(compteur-1).getMain().get(2));
-						joueurs.get(compteur-1).getMain().set(2,'O');
-						System.out.println(joueurs.get(compteur-1).getMain());
-						System.out.println(joueurs.get(compteur-1).getProgramme());
-						break;
+						if(carte3 == true) {
+							joueurs.get(compteur-1).getProgramme().add(joueurs.get(compteur-1).getMain().get(2));
+							joueurs.get(compteur-1).getMain().set(2,'O');
+							System.out.println(joueurs.get(compteur-1).getMain());
+							System.out.println(joueurs.get(compteur-1).getProgramme());
+							carte3 = false;
+							break;
+						}else {
+							System.out.println("Vous n'avez plus de carte ‡ cet emplacement !");
+							break;
+						}
 					case 4:
-						joueurs.get(compteur-1).getProgramme().add(joueurs.get(compteur-1).getMain().get(3));
-						joueurs.get(compteur-1).getMain().set(3,'O');
-						System.out.println(joueurs.get(compteur-1).getMain());
-						System.out.println(joueurs.get(compteur-1).getProgramme());
-						break;
+						if(carte4 == true) {
+							joueurs.get(compteur-1).getProgramme().add(joueurs.get(compteur-1).getMain().get(3));
+							joueurs.get(compteur-1).getMain().set(3,'O');
+							System.out.println(joueurs.get(compteur-1).getMain());
+							System.out.println(joueurs.get(compteur-1).getProgramme());
+							carte4 = false;
+							break;
+						}else {
+							System.out.println("Vous n'avez plus de carte ‡ cet emplacement !");
+							break;
+						}
+						
 					case 5:
-						joueurs.get(compteur-1).getProgramme().add(joueurs.get(compteur-1).getMain().get(4));
-						joueurs.get(compteur-1).getMain().set(4,'O');
-						System.out.println(joueurs.get(compteur-1).getMain());
-						System.out.println(joueurs.get(compteur-1).getProgramme());
-						break;
+						if(carte5 == true) {
+							joueurs.get(compteur-1).getProgramme().add(joueurs.get(compteur-1).getMain().get(4));
+							joueurs.get(compteur-1).getMain().set(4,'O');
+							System.out.println(joueurs.get(compteur-1).getMain());
+							System.out.println(joueurs.get(compteur-1).getProgramme());
+							carte5 = false;
+							break;
+						}else {
+							System.out.println("Vous n'avez plus de carte ‡ cet emplacement !");
+							break;	
+						}
+									
 					}
 				}
-				
-				break;
+							
 			case 2:
 				//construireMur();
 				break;
@@ -199,11 +251,11 @@ public class Game {
 		}
 		compteur++;
 		
-		System.out.println("D√©but d'une nouvelle partie de Robot Turtles !");
-		System.out.println("Cette partie est √† " + joueurs.size() + " joueurs.");
+		System.out.println("DÈbut d'une nouvelle partie de Robot Turtles !");
+		System.out.println("Cette partie est ‡ " + joueurs.size() + " joueurs.");
 		System.out.println("C'est au tour du Joueur 1.");
 		System.out.println("Que souhaitez-vous faire pendant ce tour ?");
-		System.out.println("(1) Compl√©ter le programme \n(2) Construire un mur \n(3) Ex√©cuter le programme");
+		System.out.println("(1) ComplËter le programme \n(2) Construire un mur \n(3) Executer le programme");
 		choixMenu = scanner.nextInt();	
 		
 		switch (choixMenu) {
@@ -215,12 +267,8 @@ public class Game {
 			Cartes bleue = new Cartes(Type.Avancer);
 			//bleue.execute(bleue, game.tortues.get(1));
 			Plateau.plateau2Joueurs();
-			//executerProgramme();
-;			
-
-		}
-		
-		
+			//executerProgramme();			
+		}			
 	}
 	/*public void defausser() {
 		System.out.println("Voulez-vous d√©fausser le reste de vos cartes ?");
