@@ -26,6 +26,7 @@ public class Cartes {
 	}
 
 	public void execute(Cartes carte, Tortue tortue) {
+		
 		Type type = Cartes.getType();
 		int direction = tortue.getDirection();
 		int colonne = tortue.getColonne();

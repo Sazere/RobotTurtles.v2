@@ -15,12 +15,11 @@ public class Game {
 	
 	Scanner scanner = new Scanner(System.in);
 	ArrayList<Joueur> joueurs = new ArrayList<Joueur>();
-	public static ArrayList<Tortue> tortues = new ArrayList<Tortue>();
+	public ArrayList<Tortue> tortues = new ArrayList<Tortue>();
 	
 	public Game(int nombreJoueur) {
 		for(int i=0;i<nombreJoueur;i++) {
 			this.joueurs.add(new Joueur(i+1));
-
 			System.out.println("Joueur " +joueurs.get(i).getJoueur());
 
 			tortues.add(new Tortue());
@@ -214,7 +213,7 @@ public class Game {
 			//construireMur();
 		case 3:
 			Cartes bleue = new Cartes(Type.Avancer);
-			bleue.execute(bleue, Game.tortues.get(1));
+			//bleue.execute(bleue, game.tortues.get(1));
 			Plateau.plateau2Joueurs();
 			//executerProgramme();
 ;			

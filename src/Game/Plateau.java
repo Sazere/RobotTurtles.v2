@@ -39,13 +39,13 @@ public class Plateau {
 				{					
 					plateauConsole[x][y] = "O";
 				}
-				else if(nbrCase == Game.tortues.get(0).getNumeroCase())
+				else if(nbrCase == game.tortues.get(0).getNumeroCase())
 				{						
-					plateauConsole[x][y] = Game.tortues.get(0).getId();				
+					plateauConsole[x][y] = game.tortues.get(0).getId();				
 				}
-				else if(nbrCase == Game.tortues.get(1).getNumeroCase())
+				else if(nbrCase == game.tortues.get(1).getNumeroCase())
 				{				
-					plateauConsole[x][y] = Game.tortues.get(1).getId();
+					plateauConsole[x][y] = game.tortues.get(1).getId();
 				}
 				else
 				{
@@ -65,6 +65,8 @@ public class Plateau {
 			}
 
 		game.start();	
+		Cartes bleu = new Cartes(Type.Avancer);
+		bleu.execute(bleu, game.tortues.get(0));
 	}
 	public static void actualiser2Joueurs(Tortue nomTortue){
 		
@@ -108,7 +110,7 @@ public class Plateau {
 	}
 	
 	private void plateau3Joueurs(){
-		Game game = new Game(Menu.getNbrJoueur());
+
 		int nbrCase = 0;
 		for(int y=0; y<8; y++){
 			for(int x=0; x<8; x++){				
@@ -120,25 +122,25 @@ public class Plateau {
 				{					
 					plateauConsole[x][y] = "O";
 				}
-				else if(nbrCase == Game.tortues.get(0).getNumeroCase())
+				else if(nbrCase == game.tortues.get(0).getNumeroCase())
 				{		
-					plateauConsole[x][y] = Game.tortues.get(0).getId();				
+					plateauConsole[x][y] = game.tortues.get(0).getId();				
 				}
 				else if(nbrCase == 56)
 				{		
 					plateauConsole[x][y] = "O";
 				}
-				else if(nbrCase == Game.tortues.get(1).getNumeroCase())
+				else if(nbrCase == game.tortues.get(1).getNumeroCase())
 				{					
-					plateauConsole[x][y] = Game.tortues.get(1).getId();
+					plateauConsole[x][y] = game.tortues.get(1).getId();
 				}				
 				else if(nbrCase == 62)
 				{					
 					plateauConsole[x][y] = "O";
 				}
-				else if(nbrCase == Game.tortues.get(2).getNumeroCase())
+				else if(nbrCase == game.tortues.get(2).getNumeroCase())
 				{			
-					plateauConsole[x][y] = Game.tortues.get(2).getId();
+					plateauConsole[x][y] = game.tortues.get(2).getId();
 				}				
 				else
 				{
@@ -161,7 +163,7 @@ public class Plateau {
 		game.start();
 	}
 	private void plateau4Joueurs(){
-		Game game = new Game(Menu.getNbrJoueur());
+
 		int nbrCase = 0;
 		for(int y=0; y<8; y++){
 			for(int x=0; x<8; x++){		
@@ -170,21 +172,21 @@ public class Plateau {
 				{					
 					plateauConsole[x][y] = "O";
 				}
-				else if(nbrCase == Game.tortues.get(0).getNumeroCase())
+				else if(nbrCase == game.tortues.get(0).getNumeroCase())
 				{		
-					plateauConsole[x][y] = Game.tortues.get(0).getId();
+					plateauConsole[x][y] = game.tortues.get(0).getId();
 				}
-				else if(nbrCase == Game.tortues.get(1).getNumeroCase())
+				else if(nbrCase == game.tortues.get(1).getNumeroCase())
 				{					
-					plateauConsole[x][y] = Game.tortues.get(1).getId();
+					plateauConsole[x][y] = game.tortues.get(1).getId();
 				}
-				else if(nbrCase == Game.tortues.get(2).getNumeroCase())
+				else if(nbrCase == game.tortues.get(2).getNumeroCase())
 				{			
-					plateauConsole[x][y] = Game.tortues.get(2).getId();
+					plateauConsole[x][y] = game.tortues.get(2).getId();
 				}
-				else if(nbrCase == Game.tortues.get(3).getNumeroCase())
+				else if(nbrCase == game.tortues.get(3).getNumeroCase())
 				{			
-					plateauConsole[x][y] = Game.tortues.get(3).getId();
+					plateauConsole[x][y] = game.tortues.get(3).getId();
 				}				
 				else if(nbrCase == 62)
 				{					

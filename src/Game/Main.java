@@ -1,5 +1,7 @@
 package Game;
 
+import Cartes.Cartes;
+import Cartes.Cartes.Type;
 import Joueur.Joueur;
 
 public class Main {
@@ -11,6 +13,8 @@ public class Main {
 		menu.startMenu();	
 		Plateau plateau = new Plateau();
 		plateau.InitPlateau();
+		
+		
 	
 	}
 
