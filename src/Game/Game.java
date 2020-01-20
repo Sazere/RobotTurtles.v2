@@ -145,8 +145,11 @@ public class Game {
 				
 				boolean arretChoixCarte = false;
 				while(arretChoixCarte == false) {
-					//System.out.println("Voici votre main : " + joueurs.get(compteur-1).getMain());
-					System.out.println("Quelle carte souhaitez-vous ajouter � votre programme ? Tapez 0 si vous ne voulez plus ajouter de cartes.");
+					System.out.println("\nVoici votre main : ");
+					for(Cartes carte : joueurs.get(compteur-1).getMain()) {
+						System.out.print(carte.getType().toString() + " ");
+					}
+					System.out.println("\nQuelle carte souhaitez-vous ajouter � votre programme ? Tapez 0 si vous ne voulez plus ajouter de cartes.");
 					if(carte1 == true) {
 						System.out.println("(1) Premi�re carte \n");
 					}
@@ -173,12 +176,16 @@ public class Game {
 						if(carte1 == true) {
 							joueurs.get(compteur-1).getProgramme().add(joueurs.get(compteur-1).getMain().get(0));
 							joueurs.get(compteur-1).getMain().set(0,new Cartes(Type.Null));
-							System.out.println(joueurs.get(compteur-1).getMain());
-							System.out.println(joueurs.get(compteur-1).getProgramme());
+						
+							System.out.println("Voici votre programme : ");
+							for(Cartes carte : joueurs.get(compteur-1).getProgramme()) {
+								System.out.print(carte.getType().toString() + " ");
+							
+						}
 							carte1 = false;
 							break;
 						}else {
-							System.out.println("Vous n'avez plus de carte � cet emplacement !");
+							System.out.println("Vous n'avez plus de carte a cet emplacement !");
 							break;
 						}
 						
@@ -186,8 +193,11 @@ public class Game {
 						if(carte2 == true) {
 							joueurs.get(compteur-1).getProgramme().add(joueurs.get(compteur-1).getMain().get(1));
 							joueurs.get(compteur-1).getMain().set(1,new Cartes(Type.Null));
-							System.out.println(joueurs.get(compteur-1).getMain());
-							System.out.println(joueurs.get(compteur-1).getProgramme());
+							System.out.println("Voici votre programme : ");
+							for(Cartes carte : joueurs.get(compteur-1).getProgramme()) {
+								System.out.print(carte.getType().toString() + " ");
+							
+						}
 							carte2 = false;
 							break;
 						}else {
@@ -198,8 +208,11 @@ public class Game {
 						if(carte3 == true) {
 							joueurs.get(compteur-1).getProgramme().add(joueurs.get(compteur-1).getMain().get(2));
 							joueurs.get(compteur-1).getMain().set(2,new Cartes(Type.Null));
-							System.out.println(joueurs.get(compteur-1).getMain());
-							System.out.println(joueurs.get(compteur-1).getProgramme());
+							System.out.println("Voici votre programme : ");
+							for(Cartes carte : joueurs.get(compteur-1).getProgramme()) {
+								System.out.print(carte.getType().toString() + " ");
+							
+						}
 							carte3 = false;
 							break;
 						}else {
@@ -210,8 +223,11 @@ public class Game {
 						if(carte4 == true) {
 							joueurs.get(compteur-1).getProgramme().add(joueurs.get(compteur-1).getMain().get(3));
 							joueurs.get(compteur-1).getMain().set(3,new Cartes(Type.Null));
-							System.out.println(joueurs.get(compteur-1).getMain());
-							System.out.println(joueurs.get(compteur-1).getProgramme());
+							System.out.println("Voici votre programme : ");
+							for(Cartes carte : joueurs.get(compteur-1).getProgramme()) {
+								System.out.print(carte.getType().toString() + " ");
+							
+						}
 							carte4 = false;
 							break;
 						}else {
@@ -223,8 +239,11 @@ public class Game {
 						if(carte5 == true) {
 							joueurs.get(compteur-1).getProgramme().add(joueurs.get(compteur-1).getMain().get(4));
 							joueurs.get(compteur-1).getMain().set(4,new Cartes(Type.Null));
-							System.out.println(joueurs.get(compteur-1).getMain());
-							System.out.println(joueurs.get(compteur-1).getProgramme());
+							System.out.println("Voici votre programme : ");
+							for(Cartes carte : joueurs.get(compteur-1).getProgramme()) {
+								System.out.print(carte.getType().toString() + " ");
+							
+						}
 							carte5 = false;
 							break;
 						}else {
@@ -244,7 +263,11 @@ public class Game {
 				System.out.println("Veuillez taper 1, 2 ou 3.");
 				start();
 				}
-			System.out.println("Votre main :" + joueurs.get(compteur-1).getMain());
+			System.out.println("Voici votre main : ");
+			for(Cartes carte : joueurs.get(compteur-1).getMain()) {
+				System.out.print(carte.getType().toString() + " ");
+			
+		}
 			joueurs.get(compteur-1).defausser();
 			joueurs.get(compteur-1).verificationPioche();
 		
@@ -252,24 +275,7 @@ public class Game {
 			compteur = 0;
 		}
 		compteur++;
-		
-		System.out.println("D�but d'une nouvelle partie de Robot Turtles !");
-		System.out.println("Cette partie est � " + joueurs.size() + " joueurs.");
-		System.out.println("C'est au tour du Joueur 1.");
-		System.out.println("Que souhaitez-vous faire pendant ce tour ?");
-		System.out.println("(1) Compl�ter le programme \n(2) Construire un mur \n(3) Executer le programme");
-		choixMenu = scanner.nextInt();	
-		
-		switch (choixMenu) {
-		case 1:
-			//completerProgramme();
-		case 2:
-			//construireMur();
-		case 3:
-			Cartes bleue = new Cartes(Type.Avancer);
-			//bleue.execute(bleue, game.tortues.get(1));
-			Plateau.plateau2Joueurs();
-			//executerProgramme();			
+			
 		}			
 	}
 	/*public void defausser() {
@@ -318,4 +324,5 @@ public class Game {
 		}
 	} */
 }
-}
+
+

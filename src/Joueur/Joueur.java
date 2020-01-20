@@ -78,7 +78,7 @@ public class Joueur {
 				this.defausse.add(pioche.get(0));
 				this.pioche.remove(pioche.get(0));
 			}
-			System.out.println(this.main);
+			//System.out.println(this.main);
 			break;
 					
 		case 2:
@@ -96,7 +96,7 @@ public class Joueur {
 				}
 				
 				}
-			System.out.println(this.main);
+			//System.out.println(this.main);
 			break;
 	
 		default:
