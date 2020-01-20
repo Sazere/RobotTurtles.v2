@@ -65,8 +65,7 @@ public class Plateau {
 			}
 
 		game.start();	
-		Cartes bleu = new Cartes(Type.Avancer);
-		bleu.execute(bleu, game.tortues.get(0));
+	
 	}
 	public static void actualiser2Joueurs(Tortue nomTortue){
 		

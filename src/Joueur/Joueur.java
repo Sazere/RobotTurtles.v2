@@ -4,6 +4,7 @@ import java.util.*;
 
 import Cartes.Cartes;
 import Cartes.Cartes.Type;
+import Game.Game;
 import Obstacles.MurGlace;
 import Obstacles.MurPierres;
 
@@ -113,6 +114,7 @@ public class Joueur {
 			}
 			
 		}
+		
 	/*public void completerProgramme() {
 		System.out.println("Quelle carte souhaitez-vous ajouter à votre programme ?");
 		System.out.println("Main :" + this.main);
