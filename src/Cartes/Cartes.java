@@ -5,29 +5,41 @@ import Joueur.Tortue;
 
 public class Cartes {
 	
-	public static Type type;
+	public Type type;
+	private String nomCarte;
 	
 	public enum Type {
 		
-		Avancer, RotationGauche, RotationDroite, Laser, Mur, MurGlace
+		Avancer("Bleu"), RotationGauche("Jaune"), RotationDroite("Violette"), Laser("Laser"), Mur("MurPierre"), MurGlace("MurGlace"), Null("Null");
+		
+		private String nom;
+		
+		
+		
+		Type(String nom){
+			this.nom = nom;
+		}
+		
+		public String toString() {
+			return nom;
+		}
 	}
 	
 	public Cartes(Type type) {
 		
-		Cartes.type = type;
+		this.type = type;
 	}
 	
-	public static Type getType() {
+	public Type getType() {
 		return type;
 	}
 
-	public static void setType(Type type) {
-		Cartes.type = type;
+	public void setType(Type type) {
+		this.type = type;
 	}
 
 	public void execute(Cartes carte, Tortue tortue) {
-		
-		Type type = Cartes.getType();
+
 		int direction = tortue.getDirection();
 		int colonne = tortue.getColonne();
 		int ligne = tortue.getLigne();
@@ -78,7 +90,7 @@ public class Cartes {
 				tortue.setDirection(1);
 				tortue.setId("B1");
 			}			
-			System.out.println("Je tourne à gauche");
+			System.out.println("Je tourne ï¿½ gauche");
 		}
 		if(type == Type.RotationDroite) {
 	
@@ -102,7 +114,7 @@ public class Cartes {
 				tortue.setDirection(3);
 				tortue.setId("B3");
 			}	
-			System.out.println("Je tourne à droite");
+			System.out.println("Je tourne ï¿½ droite");
 		}
 	}
 } 

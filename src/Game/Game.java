@@ -132,8 +132,12 @@ public class Game {
 		int compteur = 1;
 		while(true) {
 			System.out.println("C'est au tour du Joueur " + compteur);
-			System.out.println("Voici votre main : " + joueurs.get(compteur-1).getMain());
-			System.out.println("Que souhaitez-vous faire pendant ce tour ?");
+			System.out.println("Voici votre main : ");
+			for(Cartes carte : joueurs.get(compteur-1).getMain()) {
+				System.out.print(carte.getType().toString() + " ");
+			
+		}
+			System.out.println("\nQue souhaitez-vous faire pendant ce tour ?");
 			System.out.println("(1) ComplÃ©ter le programme \n(2) Construire un mur \n(3) ExÃ©cuter le programme");
 			int choixMenu = scanner.nextInt();	
 			switch (choixMenu) {
@@ -141,22 +145,22 @@ public class Game {
 				
 				boolean arretChoixCarte = false;
 				while(arretChoixCarte == false) {
-					System.out.println("Voici votre main : " + joueurs.get(compteur-1).getMain());
-					System.out.println("Quelle carte souhaitez-vous ajouter à  votre programme ? Tapez 0 si vous ne voulez plus ajouter de cartes.");
+					//System.out.println("Voici votre main : " + joueurs.get(compteur-1).getMain());
+					System.out.println("Quelle carte souhaitez-vous ajouter ï¿½ votre programme ? Tapez 0 si vous ne voulez plus ajouter de cartes.");
 					if(carte1 == true) {
-						System.out.println("(1) Première carte \n");
+						System.out.println("(1) Premiï¿½re carte \n");
 					}
 					if(carte2 == true) {
-						System.out.println("(2) Deuxième carte \n");
+						System.out.println("(2) Deuxiï¿½me carte \n");
 					}
 					if(carte3 == true) {
-						System.out.println("(3) Troisième carte \n");
+						System.out.println("(3) Troisiï¿½me carte \n");
 					}
 					if(carte4 == true) {
-						System.out.println("(4) Quatrième carte \n");
+						System.out.println("(4) Quatriï¿½me carte \n");
 					}
 					if(carte5 == true) {
-						System.out.println("(5) Cinquième carte \n");
+						System.out.println("(5) Cinquiï¿½me carte \n");
 					}
 					
 					//Les cartes que l'on ajoute aux programmes sont remplacÃ©es par des 'O' dans la main, il faut Ã©viter de mettre un 'O' dans le programme.
@@ -168,69 +172,67 @@ public class Game {
 					case 1:
 						if(carte1 == true) {
 							joueurs.get(compteur-1).getProgramme().add(joueurs.get(compteur-1).getMain().get(0));
-							joueurs.get(compteur-1).getMain().set(0,'O');
+							joueurs.get(compteur-1).getMain().set(0,new Cartes(Type.Null));
 							System.out.println(joueurs.get(compteur-1).getMain());
 							System.out.println(joueurs.get(compteur-1).getProgramme());
 							carte1 = false;
 							break;
 						}else {
-							System.out.println("Vous n'avez plus de carte à cet emplacement !");
+							System.out.println("Vous n'avez plus de carte ï¿½ cet emplacement !");
 							break;
 						}
 						
 					case 2:
 						if(carte2 == true) {
 							joueurs.get(compteur-1).getProgramme().add(joueurs.get(compteur-1).getMain().get(1));
-							joueurs.get(compteur-1).getMain().set(1,'O');
+							joueurs.get(compteur-1).getMain().set(1,new Cartes(Type.Null));
 							System.out.println(joueurs.get(compteur-1).getMain());
 							System.out.println(joueurs.get(compteur-1).getProgramme());
 							carte2 = false;
 							break;
 						}else {
-							System.out.println("Vous n'avez plus de carte à cet emplacement !");
+							System.out.println("Vous n'avez plus de carte ï¿½ cet emplacement !");
 							break;
 						}
 					case 3:
 						if(carte3 == true) {
 							joueurs.get(compteur-1).getProgramme().add(joueurs.get(compteur-1).getMain().get(2));
-							joueurs.get(compteur-1).getMain().set(2,'O');
+							joueurs.get(compteur-1).getMain().set(2,new Cartes(Type.Null));
 							System.out.println(joueurs.get(compteur-1).getMain());
 							System.out.println(joueurs.get(compteur-1).getProgramme());
 							carte3 = false;
 							break;
 						}else {
-							System.out.println("Vous n'avez plus de carte à cet emplacement !");
+							System.out.println("Vous n'avez plus de carte ï¿½ cet emplacement !");
 							break;
 						}
 					case 4:
 						if(carte4 == true) {
 							joueurs.get(compteur-1).getProgramme().add(joueurs.get(compteur-1).getMain().get(3));
-							joueurs.get(compteur-1).getMain().set(3,'O');
+							joueurs.get(compteur-1).getMain().set(3,new Cartes(Type.Null));
 							System.out.println(joueurs.get(compteur-1).getMain());
 							System.out.println(joueurs.get(compteur-1).getProgramme());
 							carte4 = false;
 							break;
 						}else {
-							System.out.println("Vous n'avez plus de carte à cet emplacement !");
+							System.out.println("Vous n'avez plus de carte ï¿½ cet emplacement !");
 							break;
 						}
 						
 					case 5:
 						if(carte5 == true) {
 							joueurs.get(compteur-1).getProgramme().add(joueurs.get(compteur-1).getMain().get(4));
-							joueurs.get(compteur-1).getMain().set(4,'O');
+							joueurs.get(compteur-1).getMain().set(4,new Cartes(Type.Null));
 							System.out.println(joueurs.get(compteur-1).getMain());
 							System.out.println(joueurs.get(compteur-1).getProgramme());
 							carte5 = false;
 							break;
 						}else {
-							System.out.println("Vous n'avez plus de carte à cet emplacement !");
+							System.out.println("Vous n'avez plus de carte ï¿½ cet emplacement !");
 							break;	
 						}
-									
 					}
 				}
-							
 			case 2:
 				//construireMur();
 				break;
@@ -251,11 +253,11 @@ public class Game {
 		}
 		compteur++;
 		
-		System.out.println("Début d'une nouvelle partie de Robot Turtles !");
-		System.out.println("Cette partie est à " + joueurs.size() + " joueurs.");
+		System.out.println("Dï¿½but d'une nouvelle partie de Robot Turtles !");
+		System.out.println("Cette partie est ï¿½ " + joueurs.size() + " joueurs.");
 		System.out.println("C'est au tour du Joueur 1.");
 		System.out.println("Que souhaitez-vous faire pendant ce tour ?");
-		System.out.println("(1) Complèter le programme \n(2) Construire un mur \n(3) Executer le programme");
+		System.out.println("(1) Complï¿½ter le programme \n(2) Construire un mur \n(3) Executer le programme");
 		choixMenu = scanner.nextInt();	
 		
 		switch (choixMenu) {
