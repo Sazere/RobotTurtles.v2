@@ -128,8 +128,12 @@ public class Game {
 		int compteur = 1;
 		while(true) {
 			System.out.println("C'est au tour du Joueur " + compteur);
-			System.out.println("Voici votre main : " + joueurs.get(compteur-1).getMain());
-			System.out.println("Que souhaitez-vous faire pendant ce tour ?");
+			System.out.println("Voici votre main : ");
+			for(Cartes carte : joueurs.get(compteur-1).getMain()) {
+				System.out.print(carte.getType().toString() + " ");
+			
+		}
+			System.out.println("\nQue souhaitez-vous faire pendant ce tour ?");
 			System.out.println("(1) Compléter le programme \n(2) Construire un mur \n(3) Exécuter le programme");
 			int choixMenu = scanner.nextInt();	
 			switch (choixMenu) {
@@ -148,31 +152,31 @@ public class Game {
 						break;
 					case 1:
 						joueurs.get(compteur-1).getProgramme().add(joueurs.get(compteur-1).getMain().get(0));
-						joueurs.get(compteur-1).getMain().set(0,'O');
+						joueurs.get(compteur-1).getMain().set(0, new Cartes(Type.Null));
 						System.out.println(joueurs.get(compteur-1).getMain());
 						System.out.println(joueurs.get(compteur-1).getProgramme());
 						break;
 					case 2:
 						joueurs.get(compteur-1).getProgramme().add(joueurs.get(compteur-1).getMain().get(1));
-						joueurs.get(compteur-1).getMain().set(1,'O');
+						joueurs.get(compteur-1).getMain().set(1,new Cartes(Type.Null));
 						System.out.println(joueurs.get(compteur-1).getMain());
 						System.out.println(joueurs.get(compteur-1).getProgramme());
 						break;
 					case 3:
 						joueurs.get(compteur-1).getProgramme().add(joueurs.get(compteur-1).getMain().get(2));
-						joueurs.get(compteur-1).getMain().set(2,'O');
+						joueurs.get(compteur-1).getMain().set(2,new Cartes(Type.Null));
 						System.out.println(joueurs.get(compteur-1).getMain());
 						System.out.println(joueurs.get(compteur-1).getProgramme());
 						break;
 					case 4:
 						joueurs.get(compteur-1).getProgramme().add(joueurs.get(compteur-1).getMain().get(3));
-						joueurs.get(compteur-1).getMain().set(3,'O');
+						joueurs.get(compteur-1).getMain().set(3,new Cartes(Type.Null));
 						System.out.println(joueurs.get(compteur-1).getMain());
 						System.out.println(joueurs.get(compteur-1).getProgramme());
 						break;
 					case 5:
 						joueurs.get(compteur-1).getProgramme().add(joueurs.get(compteur-1).getMain().get(4));
-						joueurs.get(compteur-1).getMain().set(4,'O');
+						joueurs.get(compteur-1).getMain().set(4,new Cartes(Type.Null));
 						System.out.println(joueurs.get(compteur-1).getMain());
 						System.out.println(joueurs.get(compteur-1).getProgramme());
 						break;

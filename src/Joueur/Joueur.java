@@ -2,7 +2,8 @@ package Joueur;
 
 import java.util.*;
 
-
+import Cartes.Cartes;
+import Cartes.Cartes.Type;
 import Obstacles.MurGlace;
 import Obstacles.MurPierres;
 
@@ -13,10 +14,10 @@ public class Joueur {
 		
 	Scanner scanner = new Scanner(System.in);
 	private int numeroJoueur;
-	private ArrayList<Character> programme = new ArrayList<Character>();
-	private ArrayList<Character> pioche = new ArrayList<Character>();
-	private ArrayList<Character> main = new ArrayList<Character>();
-	private ArrayList<Character> defausse = new ArrayList<Character>();
+	private ArrayList<Cartes> programme = new ArrayList<Cartes>();
+	private ArrayList<Cartes> pioche = new ArrayList<Cartes>();
+	private ArrayList<Cartes> main = new ArrayList<Cartes>();
+	private ArrayList<Cartes> defausse = new ArrayList<Cartes>();
 	/*private ArrayList<MurPierres> mursPierre = new ArrayList<MurPierres>();
 	private ArrayList<MurGlace> mursGlace = new ArrayList<MurGlace>();*/
 	private ArrayList<Character> mursPierre = new ArrayList<Character>();
@@ -27,18 +28,18 @@ public class Joueur {
 		this.numeroJoueur = numeroJoueur;
 		int i = 0;
 		while(i < 18) {
-			this.pioche.add('b');
+			this.pioche.add(new Cartes(Type.Avancer));
 			i++;
 		}
 		int j = 0;
 		while(j < 8) {
-			this.pioche.add('y');
-			this.pioche.add('p');
+			this.pioche.add(new Cartes(Type.RotationDroite));
+			this.pioche.add(new Cartes(Type.RotationGauche));
 			j++;
 		}
 		int k = 0;
 		while(k < 3) {
-			this.pioche.add('l');
+			this.pioche.add(new Cartes(Type.Laser));
 			k++;
 		}
 		Collections.shuffle(this.pioche);
@@ -87,7 +88,8 @@ public class Joueur {
 					this.pioche = this.defausse;
 					this.defausse.clear();
 				}
-				if(this.main.get(i) == 'O') {
+				//Type type = Cartes.getType();
+				if(this.main.get(i).type == Type.Null) {
 				this.main.set(i,pioche.get(0));
 				this.defausse.add(pioche.get(0));
 				this.pioche.remove(pioche.get(0));
@@ -118,19 +120,19 @@ public class Joueur {
 		
 	}*/
 	
-	public void setMain(ArrayList<Character> nouvelleMain) {
+	public void setMain(ArrayList<Cartes> nouvelleMain) {
 		this.main = nouvelleMain;
 	}
 	
-	public ArrayList<Character> getPioche() {
+	public ArrayList<Cartes> getPioche() {
 		return pioche;
 	}
 
-	public ArrayList<Character> getMain() {
+	public ArrayList<Cartes> getMain() {
 		return main;
 	}
 
-	public ArrayList<Character> getDefausse() {
+	public ArrayList<Cartes> getDefausse() {
 		return defausse;
 	}
 	
@@ -138,7 +140,7 @@ public class Joueur {
 		return numeroJoueur;
 	}
 	
-	public ArrayList<Character> getProgramme() {
+	public ArrayList<Cartes> getProgramme() {
 		return programme;
 	}
 
