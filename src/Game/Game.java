@@ -139,6 +139,12 @@ public class Game {
 				System.out.print(carte.getType().toString() + " ");
 			
 		}
+			if(joueurs.get(compteur-1).getProgramme().isEmpty()==false) {
+				System.out.println("\nVoici votre programme : ");
+				for(Cartes carte : joueurs.get(compteur-1).getProgramme()) {
+					System.out.print(carte.getType().toString() + " ");				
+				}
+			}
 			System.out.println("\nQue souhaitez-vous faire pendant ce tour ?");
 			System.out.println("(1) Compléter le programme \n(2) Construire un mur \n(3) Exécuter le programme");
 			int choixMenu = scanner.nextInt();	
@@ -155,6 +161,7 @@ public class Game {
 					for(Cartes carte : joueurs.get(compteur-1).getMain()) {
 						System.out.print(carte.getType().toString() + " ");				
 					}
+					
 					System.out.println("\nQuelle carte souhaitez-vous ajouter � votre programme ? Tapez 0 si vous ne voulez plus ajouter de cartes.");
 					if(carte1 != "Null") {
 						System.out.println("(1) Premi�re carte \n");
@@ -258,6 +265,7 @@ public class Game {
 						}
 					}
 				}
+				break;
 			case 2:
 				System.out.println("\n Il vous reste " + joueurs.get(compteur-1).getMursPierre().size() + " murs de pierre et " + joueurs.get(compteur-1).getMursGlace().size() + " de glace. \n"
 									+ "Quel type de mur voulez vous constuire ? \n"
@@ -289,6 +297,7 @@ public class Game {
 				//construireMur();
 				break;
 			case 3:
+				
 				executerProgramme();
 				if(compteur % nombreJoueur == 0) {
 					compteur = 0;
