@@ -10,7 +10,7 @@ public class Cartes {
 	
 	public enum Type {
 		
-		Avancer("Bleu"), RotationGauche("Jaune"), RotationDroite("Violette"), Laser("Laser"), Mur("MurPierre"), MurGlace("MurGlace"), Null("VIDE");
+		Avancer("Bleu"), RotationGauche("Jaune"), RotationDroite("Violette"), Laser("Laser"), Null("VIDE");
 		
 		private String nom;
 		

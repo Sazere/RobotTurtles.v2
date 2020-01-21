@@ -6,6 +6,8 @@ import Cartes.Cartes;
 import Cartes.Cartes.Type;
 import Joueur.Joueur;
 import Joueur.Tortue;
+import Obstacles.Obstacle;
+import Obstacles.Obstacle.TypeDeMur;
 
 public class Game {
 
@@ -151,12 +153,9 @@ public class Game {
 				while(arretChoixCarte == false) {
 					System.out.println("\nVoici votre main : ");
 					for(Cartes carte : joueurs.get(compteur-1).getMain()) {
-						System.out.print(carte.getType().toString() + " ");
-						
+						System.out.print(carte.getType().toString() + " ");				
 					}
 					System.out.println("\nQuelle carte souhaitez-vous ajouter � votre programme ? Tapez 0 si vous ne voulez plus ajouter de cartes.");
-					System.out.println();
-					System.out.print("resultat: " + joueurs.get(compteur-1).getMain()+ "\n");
 					if(carte1 != "Null") {
 						System.out.println("(1) Premi�re carte \n");
 					}
@@ -260,6 +259,33 @@ public class Game {
 					}
 				}
 			case 2:
+				System.out.println("\n Il vous reste " + joueurs.get(compteur-1).getMursPierre().size() + " murs de pierre et " + joueurs.get(compteur-1).getMursGlace().size() + " de glace. \n"
+									+ "Quel type de mur voulez vous constuire ? \n"
+									+ "(1) Mur normal \n"
+									+"(2) Mur de glace \n");
+				int choixMur = scanner.nextInt();
+				
+				switch(choixMur) {
+				
+				case 1:					
+						Obstacle murPierre = new Obstacle(TypeDeMur.Mur);
+						murPierre.placerMur(TypeDeMur.Mur);	
+						if(compteur % nombreJoueur == 0) {
+							compteur = 0;
+						}
+						compteur++;
+						Plateau.plateau2Joueurs();
+					break;
+				case 2:
+					Obstacle murGlace = new Obstacle(TypeDeMur.MurGlace);
+					murGlace.placerMur(TypeDeMur.MurGlace);
+					if(compteur % nombreJoueur == 0) {
+						compteur = 0;
+					}
+					compteur++;
+					Plateau.plateau2Joueurs();
+					break;
+				}
 				//construireMur();
 				break;
 			case 3:
@@ -292,8 +318,55 @@ public class Game {
 			
 		}			
 	}
-	public void updatePlateau() {
-		
+	public void updatePlateau2J() {
+		for(int i = 0; i < joueurs.get(1).getMursPierre().size(); i++) {
+			
+			ArrayList<Obstacle> listeObstaclePierre = new ArrayList<Obstacle>();
+			ArrayList<Integer> coordonneesMur = new ArrayList<Integer>();
+			//listeObstaclePierre.add(obstacle);
+			coordonneesMur.add(listeObstaclePierre.get(0).getLigne());
+			coordonneesMur.add(listeObstaclePierre.get(0).getColonne());
+			System.out.println("GRAND TEST" + coordonneesMur);
+	}
+		joueurs.get(compteur-1).getMursPierre();
+		int nbrCase = 0;
+		for(int y=0; y<8; y++){
+			for(int x=0; x<8; x++){				
+				if(x%7 == 0 && x!=0)
+				{					
+					Plateau.plateauConsole[x][y] = "M";					
+				}				
+				else if(nbrCase == 59)
+				{					
+					Plateau.plateauConsole[x][y] = "O";
+				}
+				else if(nbrCase == tortues.get(0).getNumeroCase())
+				{						
+					Plateau.plateauConsole[x][y] = tortues.get(0).getId();				
+				}
+				else if(nbrCase == tortues.get(1).getNumeroCase())
+				{				
+					Plateau.plateauConsole[x][y] = tortues.get(1).getId();
+				}
+				else
+				{
+					Plateau.plateauConsole[x][y] = ".";
+				}							
+				nbrCase+=1;				
+			}			
+		}
+		System.out.print("-------------------------- \n");
+		for(int y = 0 ; y < 8 ; y++){
+			System.out.print('|');
+			for(int x = 0 ; x < 8 ; x++){
+				System.out.print(" " + Plateau.plateauConsole[x][y] + " ");
+			}
+			System.out.print('|');
+			System.out.println();
+			}
+
+		Plateau.game.start();	
+	
 	}
 	public void executerProgramme() {
 		
