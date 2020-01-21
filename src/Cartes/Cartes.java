@@ -9,13 +9,13 @@ public class Cartes {
 	private String nomCarte;
 	
 	public enum Type {
-		
-		Avancer("Bleu"), RotationGauche("Jaune"), RotationDroite("Violette"), Laser("Laser"), Mur("MurPierre"), MurGlace("MurGlace"), Null("");
+
+		Avancer("Bleu"), RotationGauche("Jaune"), RotationDroite("Violette"), Laser("Laser"), Null("VIDE");
+
 		
 		private String nom;
 		
-		
-		
+				
 		Type(String nom){
 			this.nom = nom;
 		}
