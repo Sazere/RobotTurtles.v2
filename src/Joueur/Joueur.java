@@ -126,6 +126,7 @@ public class Joueur {
 		this.main = nouvelleMain;
 	}
 	
+	
 	public ArrayList<Cartes> getPioche() {
 		return pioche;
 	}

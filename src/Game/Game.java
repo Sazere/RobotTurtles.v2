@@ -124,7 +124,12 @@ public class Game {
 
 
 		int nombreJoueur = joueurs.size();
-		String verifMain = "null";
+		String carte1 = "";
+		String carte2 = "";
+		String carte3 = "";
+		String carte4 = "";
+		String carte5 = "";
+
 		while(true) {
 			System.out.println("C'est au tour du Joueur " + compteur);
 			System.out.println("Voici votre main : ");
@@ -137,31 +142,34 @@ public class Game {
 			int choixMenu = scanner.nextInt();	
 			switch (choixMenu) {
 			case 1:
-				
+				carte1 = "";
+				carte2 = "";
+				carte3 = "";
+				carte4 = "";
+				carte5 = "";
 				boolean arretChoixCarte = false;
 				while(arretChoixCarte == false) {
 					System.out.println("\nVoici votre main : ");
 					for(Cartes carte : joueurs.get(compteur-1).getMain()) {
 						System.out.print(carte.getType().toString() + " ");
-						verifMain = carte.getType().toString();
 						
 					}
 					System.out.println("\nQuelle carte souhaitez-vous ajouter � votre programme ? Tapez 0 si vous ne voulez plus ajouter de cartes.");
 					System.out.println();
-					System.out.print(verifMain);
-					if(verifMain != "Null") {
+					System.out.print("resultat: " + joueurs.get(compteur-1).getMain()+ "\n");
+					if(carte1 != "Null") {
 						System.out.println("(1) Premi�re carte \n");
 					}
-					if(verifMain != null) {
+					if(carte2 != "Null") {
 						System.out.println("(2) Deuxi�me carte \n");
 					}
-					if(verifMain != null) {
+					if(carte3 != "Null") {
 						System.out.println("(3) Troisi�me carte \n");
 					}
-					if(verifMain != null) {
+					if(carte4 != "Null") {
 						System.out.println("(4) Quatri�me carte \n");
 					}
-					if(verifMain != null) {
+					if(carte5 != "Null") {
 						System.out.println("(5) Cinqui�me carte \n");
 					}
 					
@@ -172,9 +180,10 @@ public class Game {
 						arretChoixCarte = true;
 						break;
 					case 1:
-						if(verifMain != null) {
+						if(carte1 != "Null") {
 							joueurs.get(compteur-1).getProgramme().add(joueurs.get(compteur-1).getMain().get(0));
 							joueurs.get(compteur-1).getMain().set(0,new Cartes(Type.Null));
+							carte1 = "Null";
 						
 							System.out.println("Voici votre programme : ");
 							for(Cartes carte : joueurs.get(compteur-1).getProgramme()) {
@@ -188,13 +197,14 @@ public class Game {
 						}
 						
 					case 2:
-						if(verifMain != null) {
+						if(carte2 != "Null") {
 							joueurs.get(compteur-1).getProgramme().add(joueurs.get(compteur-1).getMain().get(1));
 							joueurs.get(compteur-1).getMain().set(1,new Cartes(Type.Null));
+							carte2 = "Null";
 							System.out.println("Voici votre programme : ");
 							for(Cartes carte : joueurs.get(compteur-1).getProgramme()) {
 								System.out.print(carte.getType().toString() + " ");
-							
+								
 						}
 							break;
 						}else {
@@ -202,13 +212,14 @@ public class Game {
 							break;
 						}
 					case 3:
-						if(verifMain != null) {
+						if(carte3 != "Null") {
 							joueurs.get(compteur-1).getProgramme().add(joueurs.get(compteur-1).getMain().get(2));
 							joueurs.get(compteur-1).getMain().set(2,new Cartes(Type.Null));
+							carte3 = "Null";
 							System.out.println("Voici votre programme : ");
 							for(Cartes carte : joueurs.get(compteur-1).getProgramme()) {
 								System.out.print(carte.getType().toString() + " ");
-							
+								
 						}
 							break;
 						}else {
@@ -216,13 +227,14 @@ public class Game {
 							break;
 						}
 					case 4:
-						if(verifMain != null) {
+						if(carte4 != "Null") {
 							joueurs.get(compteur-1).getProgramme().add(joueurs.get(compteur-1).getMain().get(3));
 							joueurs.get(compteur-1).getMain().set(3,new Cartes(Type.Null));
+							carte4 = "Null";
 							System.out.println("Voici votre programme : ");
 							for(Cartes carte : joueurs.get(compteur-1).getProgramme()) {
 								System.out.print(carte.getType().toString() + " ");
-							
+								
 						}
 							break;
 						}else {
@@ -231,13 +243,14 @@ public class Game {
 						}
 						
 					case 5:
-						if(verifMain != null) {
+						if(carte5 != "Null") {
 							joueurs.get(compteur-1).getProgramme().add(joueurs.get(compteur-1).getMain().get(4));
 							joueurs.get(compteur-1).getMain().set(4,new Cartes(Type.Null));
+							carte5 = "Null";
 							System.out.println("Voici votre programme : ");
 							for(Cartes carte : joueurs.get(compteur-1).getProgramme()) {
 								System.out.print(carte.getType().toString() + " ");
-							
+								
 						}
 							break;
 						}else {
@@ -251,8 +264,13 @@ public class Game {
 				break;
 			case 3:
 				executerProgramme();
-				Plateau plateau = new Plateau();
-				plateau.InitPlateau();			
+				if(compteur % nombreJoueur == 0) {
+					compteur = 0;
+				}
+				compteur++;
+				Plateau.plateau2Joueurs();
+				
+				//start();		
 				//verificationVictoire();
 				break;
 			default:

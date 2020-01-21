@@ -10,12 +10,11 @@ public class Cartes {
 	
 	public enum Type {
 		
-		Avancer("Bleu"), RotationGauche("Jaune"), RotationDroite("Violette"), Laser("Laser"), Mur("MurPierre"), MurGlace("MurGlace"), Null("Null");
+		Avancer("Bleu"), RotationGauche("Jaune"), RotationDroite("Violette"), Laser("Laser"), Mur("MurPierre"), MurGlace("MurGlace"), Null("VIDE");
 		
 		private String nom;
 		
-		
-		
+				
 		Type(String nom){
 			this.nom = nom;
 		}
