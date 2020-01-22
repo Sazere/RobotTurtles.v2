@@ -133,12 +133,6 @@ public class Game {
 				System.out.print(carte.getType().toString() + " ");
 			
 		}
-			if(joueurs.get(compteur-1).getProgramme().isEmpty()==false) {
-				System.out.println("\nVoici votre programme : ");
-				for(Cartes carte : joueurs.get(compteur-1).getProgramme()) {
-					System.out.print(carte.getType().toString() + " ");				
-				}
-			}
 			System.out.println("\nQue souhaitez-vous faire pendant ce tour ?");
 			System.out.println("(1) Completer le programme \n(2) Construire un mur \n(3) Executer le programme");
 			int choixMenu = scanner.nextInt();	
@@ -155,9 +149,7 @@ public class Game {
 					for(Cartes carte : joueurs.get(compteur-1).getMain()) {
 						System.out.print(carte.getType().toString() + " ");				
 					}
-
 					System.out.println("\nQuelle carte souhaitez-vous ajouter au votre programme ? Tapez 0 si vous ne voulez plus ajouter de cartes.");
-
 					if(carte1 != "Null") {
 						System.out.println("(1) Premiere carte \n");
 					}
@@ -206,6 +198,11 @@ public class Game {
 							joueurs.get(compteur-1).getProgramme().add(joueurs.get(compteur-1).getMain().get(2));
 							joueurs.get(compteur-1).getMain().set(2,new Cartes(Type.NULL));
 							carte3 = "Null";
+							System.out.println("Voici votre programme : ");
+							for(Cartes carte : joueurs.get(compteur-1).getProgramme()) {
+								System.out.print(carte.getType().toString() + " ");
+								
+						}
 							break;
 						}else {
 							System.out.println("Vous n'avez plus de carte acet emplacement !");
@@ -216,6 +213,11 @@ public class Game {
 							joueurs.get(compteur-1).getProgramme().add(joueurs.get(compteur-1).getMain().get(3));
 							joueurs.get(compteur-1).getMain().set(3,new Cartes(Type.NULL));
 							carte4 = "Null";
+							System.out.println("Voici votre programme : ");
+							for(Cartes carte : joueurs.get(compteur-1).getProgramme()) {
+								System.out.print(carte.getType().toString() + " ");
+								
+						}
 							break;
 						}else {
 							System.out.println("Vous n'avez plus de carte a cet emplacement !");
@@ -227,6 +229,11 @@ public class Game {
 							joueurs.get(compteur-1).getProgramme().add(joueurs.get(compteur-1).getMain().get(4));
 							joueurs.get(compteur-1).getMain().set(4,new Cartes(Type.NULL));
 							carte5 = "Null";
+							System.out.println("Voici votre programme : ");
+							for(Cartes carte : joueurs.get(compteur-1).getProgramme()) {
+								System.out.print(carte.getType().toString() + " ");
+								
+						}
 							break;
 						}else {
 							System.out.println("Vous n'avez plus de carte a cet emplacement !");
@@ -238,9 +245,7 @@ public class Game {
 					
 					
 				}
-
-				break;
-
+				break;	
 			case 2:
 				System.out.println("\n Il vous reste " + joueurs.get(compteur-1).getMursPierre().size() + " murs de pierre et " + joueurs.get(compteur-1).getMursGlace().size() + " de glace. \n"
 									+ "Quel type de mur voulez vous constuire ? \n"
@@ -273,7 +278,6 @@ public class Game {
 				//construireMur();
 				break;
 			case 3:
-				
 				executerProgramme();
 				if(victoire == true) {
 					break;
@@ -289,7 +293,6 @@ public class Game {
 				System.out.println("Veuillez taper 1, 2 ou 3.");
 				start();
 				}
-
 			if(victoire == false) {
 				System.out.println("Voici votre main : ");
 				for(Cartes carte : joueurs.get(compteur-1).getMain()) {
@@ -298,7 +301,6 @@ public class Game {
 			}
 				joueurs.get(compteur-1).defausser();
 				joueurs.get(compteur-1).verificationPioche();
-
 			
 			if(compteur % nombreJoueur == 0) {
 				compteur = 0;
@@ -378,7 +380,7 @@ public class Game {
 			System.out.print('|');
 			System.out.println();
 			}
-		
+
 		Plateau.game.start();	
 	
 	}
