@@ -99,7 +99,7 @@ public class Joueur {
 			for (int n=0;n<5;n++) {
 				if (this.pioche.isEmpty()==true) {
 					Collections.shuffle(this.defausse);
-					for(int m =0; m<this.defausse.size()-1;m++) {
+					for(int m =0; m<this.defausse.size();m++) {
 						this.pioche.add(defausse.get(m));
 					}
 					this.defausse.clear();
@@ -116,7 +116,7 @@ public class Joueur {
 			for (int i = 0;i<5;i++) {
 				if (this.pioche.isEmpty()==true) {
 					Collections.shuffle(this.defausse);
-					for(int m =0; m<this.defausse.size()-1;m++) {
+					for(int m =0; m<this.defausse.size();m++) {
 						this.pioche.add(defausse.get(m));
 					}
 					this.defausse.clear();	
@@ -143,7 +143,7 @@ public class Joueur {
 		public void verificationPioche() {
 			if (this.pioche.isEmpty()==true) {
 				Collections.shuffle(this.defausse);
-				for(int m =0; m<this.defausse.size()-1;m++) {
+				for(int m =0; m<this.defausse.size();m++) {
 					this.pioche.add(defausse.get(m));
 				}
 				this.defausse.clear();
