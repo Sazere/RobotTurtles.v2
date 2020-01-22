@@ -13,7 +13,7 @@ public class Game {
 
 	public int nbrJoueur;
 	public int input;
-	int compteur = 1;
+	public static int compteur = 1;
 	
 	Scanner scanner = new Scanner(System.in);
 	ArrayList<Joueur> joueurs = new ArrayList<Joueur>();
@@ -29,8 +29,8 @@ public class Game {
 			{
 				if(i == 0) {
 					tortues.get(0).setDirection(1);
-					tortues.get(0).setLigne(0);
-					tortues.get(0).setColonne(1);
+					tortues.get(0).setLigne(1);
+					tortues.get(0).setColonne(2);
 					tortues.get(0).setDirection(1);			
 					tortues.get(0).setNumeroCase(1);
 					tortues.get(0).setId("B1");
@@ -38,8 +38,8 @@ public class Game {
 				}
 				if(i == 1) {
 					tortues.get(1).setDirection(1);
-					tortues.get(0).setLigne(0);
-					tortues.get(0).setColonne(5);
+					tortues.get(1).setLigne(1);
+					tortues.get(1).setColonne(6);
 					tortues.get(1).setNumeroCase(5);
 					tortues.get(1).setId("R1");
 					tortues.get(1).setCouleurTortue("Rouge");
@@ -140,7 +140,7 @@ public class Game {
 			
 		}
 			System.out.println("\nQue souhaitez-vous faire pendant ce tour ?");
-			System.out.println("(1) Compléter le programme \n(2) Construire un mur \n(3) Exécuter le programme");
+			System.out.println("(1) Completer le programme \n(2) Construire un mur \n(3) Executer le programme");
 			int choixMenu = scanner.nextInt();	
 			switch (choixMenu) {
 			case 1:
@@ -155,21 +155,21 @@ public class Game {
 					for(Cartes carte : joueurs.get(compteur-1).getMain()) {
 						System.out.print(carte.getType().toString() + " ");				
 					}
-					System.out.println("\nQuelle carte souhaitez-vous ajouter � votre programme ? Tapez 0 si vous ne voulez plus ajouter de cartes.");
+					System.out.println("\nQuelle carte souhaitez-vous ajouter au votre programme ? Tapez 0 si vous ne voulez plus ajouter de cartes.");
 					if(carte1 != "Null") {
-						System.out.println("(1) Premi�re carte \n");
+						System.out.println("(1) Premiere carte \n");
 					}
 					if(carte2 != "Null") {
-						System.out.println("(2) Deuxi�me carte \n");
+						System.out.println("(2) Deuxieme carte \n");
 					}
 					if(carte3 != "Null") {
-						System.out.println("(3) Troisi�me carte \n");
+						System.out.println("(3) Troisieme carte \n");
 					}
 					if(carte4 != "Null") {
-						System.out.println("(4) Quatri�me carte \n");
+						System.out.println("(4) Quatrieme carte \n");
 					}
 					if(carte5 != "Null") {
-						System.out.println("(5) Cinqui�me carte \n");
+						System.out.println("(5) Cinquieme carte \n");
 					}
 					
 					//Les cartes que l'on ajoute aux programmes sont remplacées par des 'O' dans la main, il faut éviter de mettre un 'O' dans le programme.
@@ -207,7 +207,7 @@ public class Game {
 						}
 							break;
 						}else {
-							System.out.println("Vous n'avez plus de carte � cet emplacement !");
+							System.out.println("Vous n'avez plus de carte a cet emplacement !");
 							break;
 						}
 					case 3:
@@ -222,7 +222,7 @@ public class Game {
 						}
 							break;
 						}else {
-							System.out.println("Vous n'avez plus de carte � cet emplacement !");
+							System.out.println("Vous n'avez plus de carte acet emplacement !");
 							break;
 						}
 					case 4:
@@ -237,7 +237,7 @@ public class Game {
 						}
 							break;
 						}else {
-							System.out.println("Vous n'avez plus de carte � cet emplacement !");
+							System.out.println("Vous n'avez plus de carte a cet emplacement !");
 							break;
 						}
 						
@@ -253,11 +253,13 @@ public class Game {
 						}
 							break;
 						}else {
-							System.out.println("Vous n'avez plus de carte � cet emplacement !");
+							System.out.println("Vous n'avez plus de carte a cet emplacement !");
 							break;	
 						}
 					}
+					
 				}
+				break;	
 			case 2:
 				System.out.println("\n Il vous reste " + joueurs.get(compteur-1).getMursPierre().size() + " murs de pierre et " + joueurs.get(compteur-1).getMursGlace().size() + " de glace. \n"
 									+ "Quel type de mur voulez vous constuire ? \n"
@@ -337,8 +339,6 @@ public class Game {
 						 int murCol = Obstacle.getMurPlaces().get(compteurMur).x;
 						 int murLigne = Obstacle.getMurPlaces().get(compteurMur).y+1;
 						 nbrCaseMur = (murLigne - 1) * 8 + murCol;			
-						 //System.out.println(Obstacle.getMurGlacePlaces().size());
-					//compteurMur++;
 					 }
 				}
 				if(x < Obstacle.getMurGlacePlaces().size()) {
@@ -348,8 +348,6 @@ public class Game {
 						int murCol2 = Obstacle.getMurGlacePlaces().get(compteurMurGlace).x;
 						int murLigne2 = Obstacle.getMurGlacePlaces().get(compteurMurGlace).y+1;
 						nbrCaseMurGlace = (murLigne2 - 1) * 8 + murCol2;			
-						System.out.println("CALCULE GLACE");
-						//compteurMur++;
 						 }
 				}
 				if(x%7 == 0 && x!=0)
@@ -406,6 +404,8 @@ public class Game {
 		for(int i = 0; i < tailleProgramme ; i++)
 		{
 			Cartes carte = joueurs.get(compteur-1).getProgramme().get(i);
+			System.out.println("Tortue " + tortues.get(compteur-1).getId()+ " sur la case " + tortues.get(compteur-1).getNumeroCase() + " aux coordonn�es : " + tortues.get(compteur-1).getColonne() + ";" + tortues.get(compteur-1).getLigne());
+			//System.out.println("Tortue " + tortues.get(compteur).getId()+ " sur la case " + tortues.get(compteur).getNumeroCase() +  " aux coordonn�es : " + tortues.get(compteur).getColonne() + ";" + tortues.get(compteur).getLigne());
 			carte.execute(carte, tortues.get(compteur-1));
 		}
 		

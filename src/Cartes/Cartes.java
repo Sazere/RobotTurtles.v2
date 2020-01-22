@@ -48,29 +48,84 @@ public class Cartes {
 					
 			if(direction == 1 && ligne < 7 ) 
 			{
-				System.out.println("MUR DEVANT SALOPE");
-				if(Plateau.plateauConsole[ligne-1][colonne] == "M") {
+				System.out.println(colonne +" " + ligne +Plateau.plateauConsole[2][0]);
+				System.out.println(Plateau.plateauConsole[colonne][ligne-1]);
+				if(Plateau.plateauConsole[colonne-1][ligne] == "M" || Plateau.plateauConsole[colonne-1][ligne] == "G" ) {
 					tortue.setDirection(3);
-					System.out.println("MUR DEVANT SALOPE");
+					
+					if(Game.Game.compteur == 1) {
+						tortue.setId("B3");
+					}else if(Game.Game.compteur == 2) {
+						tortue.setId("R3");
+					}else if(Game.Game.compteur == 3) {
+						tortue.setId("V3");
+					}else if(Game.Game.compteur == 4) {
+						tortue.setId("M3");
+					}
+				}else {
+					tortue.setLigne(ligne + 1);
+					tortue.setNumeroCase(numeroCase + 8);		
 				}
-				tortue.setLigne(ligne + 1);
-				tortue.setNumeroCase(numeroCase + 8);				
+						
 			}
 			else if(direction == 2 && colonne > 0)
 			{
-				
-				tortue.setColonne(colonne - 1);
-				tortue.setNumeroCase(numeroCase -1);
+				if(Plateau.plateauConsole[colonne][ligne-1] == "M" || Plateau.plateauConsole[colonne][ligne-1] == "G" ) {
+					tortue.setDirection(4);
+					
+					if(Game.Game.compteur == 1) {
+						tortue.setId("B4");
+					}else if(Game.Game.compteur == 2) {
+						tortue.setId("R4");
+					}else if(Game.Game.compteur == 3) {
+						tortue.setId("V4");
+					}else if(Game.Game.compteur == 4) {
+						tortue.setId("M4");
+					}
+				}else {
+					tortue.setColonne(colonne - 1);
+					tortue.setNumeroCase(numeroCase -1);		
+				}
 			}
 			else if(direction == 3 && ligne > 0)
 			{
-				tortue.setLigne(ligne -1);
-				tortue.setNumeroCase(numeroCase - 8);
+				if(Plateau.plateauConsole[colonne+1][ligne] == "M" || Plateau.plateauConsole[colonne+1][ligne] == "G" ) {
+					tortue.setDirection(3);
+					
+					if(Game.Game.compteur == 1) {
+						tortue.setId("B3");
+					}else if(Game.Game.compteur == 2) {
+						tortue.setId("R3");
+					}else if(Game.Game.compteur == 3) {
+						tortue.setId("V3");
+					}else if(Game.Game.compteur == 4) {
+						tortue.setId("M3");
+					}
+				}else {
+					tortue.setLigne(ligne -1);
+					tortue.setNumeroCase(numeroCase - 8);		
+				}
+				
 			}
 			else if(direction == 4 && colonne < 7)
 			{
-				tortue.setColonne(colonne + 1 );
-				tortue.setNumeroCase(numeroCase + 1);
+				System.out.println(Plateau.plateauConsole[colonne-1][ligne+1]);
+				if(Plateau.plateauConsole[colonne][ligne+1] == "M" || Plateau.plateauConsole[colonne][ligne+1] == "G" ) {
+					tortue.setDirection(4);
+					
+					if(Game.Game.compteur == 1) {
+						tortue.setId("B2");
+					}else if(Game.Game.compteur == 2) {
+						tortue.setId("R2");
+					}else if(Game.Game.compteur == 3) {
+						tortue.setId("V2");
+					}else if(Game.Game.compteur == 4) {
+						tortue.setId("M2");
+					}
+				}else {
+					tortue.setColonne(colonne + 1 );
+					tortue.setNumeroCase(numeroCase + 1);		
+				}
 			}			
 			System.out.println("J'avance");
 		}
