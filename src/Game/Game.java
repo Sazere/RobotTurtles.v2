@@ -258,21 +258,13 @@ public class Game {
 				case 1:					
 						Obstacle murPierre = new Obstacle(TypeDeMur.MUR);
 						murPierre.placerMur(TypeDeMur.MUR);	
-						if(compteur % nombreJoueur == 0) {
-							compteur = 0;
-						}
-						compteur++;
-						updatePlateau2J();
+						
 						//Plateau.plateau2Joueurs();
 					break;
 				case 2:
 					Obstacle murGlace = new Obstacle(TypeDeMur.MURGLACE);
 					murGlace.placerMur(TypeDeMur.MURGLACE);
-					if(compteur % nombreJoueur == 0) {
-						compteur = 0;
-					}
-					compteur++;
-					updatePlateau2J();
+				
 					break;
 				}
 				//construireMur();
@@ -282,12 +274,7 @@ public class Game {
 				if(victoire == true) {
 					break;
 				}
-				if(compteur % nombreJoueur == 0) {
-					compteur = 0;
-				}
-				compteur++;
 				
-				updatePlateau2J();
 				break;
 			default:
 				System.out.println("Veuillez taper 1, 2 ou 3.");
@@ -306,7 +293,8 @@ public class Game {
 				compteur = 0;
 			}
 			compteur++;
-			}			
+			updatePlateau2J();
+			}
 		}			
 	}
 	public void updatePlateau2J() {
@@ -381,7 +369,7 @@ public class Game {
 			System.out.println();
 			}
 
-		Plateau.game.start();	
+		//Plateau.game.start();	
 	
 	}
 	public void executerProgramme() {
@@ -391,7 +379,7 @@ public class Game {
 		for(int i = 0; i < tailleProgramme ; i++)
 		{
 			Cartes carte = joueurs.get(compteur-1).getProgramme().get(i);
-			System.out.println("Tortue " + tortues.get(compteur-1).getId()+ " sur la case " + tortues.get(compteur-1).getNumeroCase() + " aux coordonn�es : " + tortues.get(compteur-1).getColonne() + ";" + tortues.get(compteur-1).getLigne());
+			System.out.println("Tortue " + tortues.get(compteur-1).getId()+ " sur la case " + tortues.get(compteur-1).getNumeroCase() + " aux coordonnees : " + tortues.get(compteur-1).getColonne() + ";" + tortues.get(compteur-1).getLigne());
 			//System.out.println("Tortue " + tortues.get(compteur).getId()+ " sur la case " + tortues.get(compteur).getNumeroCase() +  " aux coordonn�es : " + tortues.get(compteur).getColonne() + ";" + tortues.get(compteur).getLigne());
 			carte.execute(carte, tortues.get(compteur-1));
 			if(nbrJoueur == 2) {

@@ -89,7 +89,7 @@ public class Joueur {
 	public void defausser() {
 		
 
-		System.out.println("Voulez-vous defausser le reste de vos cartes ?");
+		System.out.println("\nVoulez-vous defausser le reste de vos cartes ?");
 
 		System.out.println("(1) Oui \n(2) Non");
 		int reponseDefausse = scanner.nextInt();
