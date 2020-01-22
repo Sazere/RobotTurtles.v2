@@ -284,7 +284,7 @@ public class Game {
 						compteur = 0;
 					}
 					compteur++;
-					Plateau.plateau2Joueurs();
+					updatePlateau2J();
 					break;
 				}
 				//construireMur();
@@ -334,22 +334,20 @@ public class Game {
 			for(int x=0; x<8; x++){	
 				if(x < Obstacle.getMurPlaces().size()) {
 					 if(compteurMur < Obstacle.getMurPlaces().size() ) {
-					//System.out.println(Obstacle.getMurPlaces().get(x).x); // colonne
-					//System.out.println(Obstacle.getMurPlaces().get(x).y); // ligne
 						 int murCol = Obstacle.getMurPlaces().get(compteurMur).x;
 						 int murLigne = Obstacle.getMurPlaces().get(compteurMur).y+1;
 						 nbrCaseMur = (murLigne - 1) * 8 + murCol;			
-						 System.out.println("CALCULE");
+						 //System.out.println(Obstacle.getMurGlacePlaces().size());
 					//compteurMur++;
 					 }
 				}
 				if(x < Obstacle.getMurGlacePlaces().size()) {
 					if(compteurMurGlace < Obstacle.getMurGlacePlaces().size() ) {
-						//System.out.println(Obstacle.getMurPlaces().get(x).x); // colonne
-						//System.out.println(Obstacle.getMurPlaces().get(x).y); // ligne
-						int murCol = Obstacle.getMurGlacePlaces().get(compteurMurGlace).x;
-						int murLigne = Obstacle.getMurGlacePlaces().get(compteurMurGlace).y+1;
-						nbrCaseMurGlace = (murLigne - 1) * 8 + murCol;			
+						System.out.println(Obstacle.getMurGlacePlaces().get(x).x); // colonne
+						System.out.println(Obstacle.getMurGlacePlaces().get(x).y); // ligne
+						int murCol2 = Obstacle.getMurGlacePlaces().get(compteurMurGlace).x;
+						int murLigne2 = Obstacle.getMurGlacePlaces().get(compteurMurGlace).y+1;
+						nbrCaseMurGlace = (murLigne2 - 1) * 8 + murCol2;			
 						System.out.println("CALCULE GLACE");
 						//compteurMur++;
 						 }
