@@ -7,8 +7,8 @@ public class Menu {
 	Scanner scanner = new Scanner(System.in);
 	
 	public int startMenu() {
-		System.out.println("Début d'une nouvelle partie de Robot Turtles ! \n"
-						+"Créer une partie de: \n"
+		System.out.println("Debut d'une nouvelle partie de Robot Turtles ! \n"
+						+"Creer une partie de: \n"
 						+ "(2) 2 Joueurs \n"
 						+ "(3) 3 Joueurs \n"
 						+ "(4) 4 Joueurs \n");

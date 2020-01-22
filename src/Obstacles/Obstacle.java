@@ -19,7 +19,7 @@ public class Obstacle {
 	public static ArrayList<Point> murGlacePlaces = new ArrayList<Point>();
 	public enum TypeDeMur {
 		
-		Mur("MurPierre"), MurGlace("MurGlace");
+		MUR("MurPierre"), MURGLACE("MurGlace");
 		
 		
 				
@@ -44,13 +44,13 @@ public class Obstacle {
 		}
 		
 		public void placerMur(TypeDeMur type) {
-			System.out.println("Donnez la colonne du mur à construire: ");
+			System.out.println("Donnez la colonne du mur a construire: ");
 			Scanner scanner = new Scanner(System.in);
 			colonne = scanner.nextInt();
-			System.out.println("Donnez la ligne du mur à construire: ");
+			System.out.println("Donnez la ligne du mur a construire: ");
 			ligne = scanner.nextInt();
 			
-			if(type == TypeDeMur.Mur) {
+			if(type == TypeDeMur.MUR) {
 				if(Plateau.plateauConsole[colonne-1][ligne -1] == ".")
 				{
 					//Plateau.plateauConsole[colonne-1][ligne -1] = "M";
@@ -58,10 +58,10 @@ public class Obstacle {
 					murPlaces.add(numeroCaseMur);
 					System.out.println("Vous construisez un mur en ["+ colonne + "][" + ligne + "]");
 				}else {
-					System.out.println("Cette case est déjà prise !");
+					System.out.println("Cette case est deja prise !");
 				}
 			}
-			else if(type == TypeDeMur.MurGlace) {
+			else if(type == TypeDeMur.MURGLACE) {
 				if(Plateau.plateauConsole[colonne-1][ligne-1] == ".")
 				{
 					//Plateau.plateauConsole[colonne-1][ligne-1] = "G";
@@ -71,7 +71,7 @@ public class Obstacle {
 				}
 			}
 			else {
-				System.out.println("Cette case est déjà prise !");
+				System.out.println("Cette case est deja prise !");
 			}
 			//Plateau.game.updatePlateau2J();
 			//Plateau.plateau2Joueurs();

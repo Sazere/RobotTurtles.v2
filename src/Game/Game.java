@@ -112,14 +112,6 @@ public class Game {
 			}
 		}
 
-	public void Menu() {
-		System.out.println("Debut d'une nouvelle partie de Robot Turtles ! \n"
-						+"Creer une partie de: "
-						+ "(1) 2 Joueurs"
-						+ "(2) 3 Joueurs"
-						+ "(3) 4 Joueurs")
-		;
-	}
 		
 
 	public void start() {
@@ -181,7 +173,7 @@ public class Game {
 					case 1:
 						if(carte1 != "Null") {
 							joueurs.get(compteur-1).getProgramme().add(joueurs.get(compteur-1).getMain().get(0));
-							joueurs.get(compteur-1).getMain().set(0,new Cartes(Type.Null));
+							joueurs.get(compteur-1).getMain().set(0,new Cartes(Type.NULL));
 							carte1 = "Null";
 						
 							System.out.println("Voici votre programme : ");
@@ -198,7 +190,7 @@ public class Game {
 					case 2:
 						if(carte2 != "Null") {
 							joueurs.get(compteur-1).getProgramme().add(joueurs.get(compteur-1).getMain().get(1));
-							joueurs.get(compteur-1).getMain().set(1,new Cartes(Type.Null));
+							joueurs.get(compteur-1).getMain().set(1,new Cartes(Type.NULL));
 							carte2 = "Null";
 							System.out.println("Voici votre programme : ");
 							for(Cartes carte : joueurs.get(compteur-1).getProgramme()) {
@@ -213,7 +205,7 @@ public class Game {
 					case 3:
 						if(carte3 != "Null") {
 							joueurs.get(compteur-1).getProgramme().add(joueurs.get(compteur-1).getMain().get(2));
-							joueurs.get(compteur-1).getMain().set(2,new Cartes(Type.Null));
+							joueurs.get(compteur-1).getMain().set(2,new Cartes(Type.NULL));
 							carte3 = "Null";
 							System.out.println("Voici votre programme : ");
 							for(Cartes carte : joueurs.get(compteur-1).getProgramme()) {
@@ -228,7 +220,7 @@ public class Game {
 					case 4:
 						if(carte4 != "Null") {
 							joueurs.get(compteur-1).getProgramme().add(joueurs.get(compteur-1).getMain().get(3));
-							joueurs.get(compteur-1).getMain().set(3,new Cartes(Type.Null));
+							joueurs.get(compteur-1).getMain().set(3,new Cartes(Type.NULL));
 							carte4 = "Null";
 							System.out.println("Voici votre programme : ");
 							for(Cartes carte : joueurs.get(compteur-1).getProgramme()) {
@@ -244,7 +236,7 @@ public class Game {
 					case 5:
 						if(carte5 != "Null") {
 							joueurs.get(compteur-1).getProgramme().add(joueurs.get(compteur-1).getMain().get(4));
-							joueurs.get(compteur-1).getMain().set(4,new Cartes(Type.Null));
+							joueurs.get(compteur-1).getMain().set(4,new Cartes(Type.NULL));
 							carte5 = "Null";
 							System.out.println("Voici votre programme : ");
 							for(Cartes carte : joueurs.get(compteur-1).getProgramme()) {
@@ -256,7 +248,10 @@ public class Game {
 							System.out.println("Vous n'avez plus de carte a cet emplacement !");
 							break;	
 						}
+					default:
+						System.out.println("Veuillez taper 1, 2, 3, 4, 5 pour le choix des cartes ou 0 si vous voulez quitter.");
 					}
+					
 					
 				}
 				break;	
@@ -270,8 +265,8 @@ public class Game {
 				switch(choixMur) {
 				
 				case 1:					
-						Obstacle murPierre = new Obstacle(TypeDeMur.Mur);
-						murPierre.placerMur(TypeDeMur.Mur);	
+						Obstacle murPierre = new Obstacle(TypeDeMur.MUR);
+						murPierre.placerMur(TypeDeMur.MUR);	
 						if(compteur % nombreJoueur == 0) {
 							compteur = 0;
 						}
@@ -280,8 +275,8 @@ public class Game {
 						//Plateau.plateau2Joueurs();
 					break;
 				case 2:
-					Obstacle murGlace = new Obstacle(TypeDeMur.MurGlace);
-					murGlace.placerMur(TypeDeMur.MurGlace);
+					Obstacle murGlace = new Obstacle(TypeDeMur.MURGLACE);
+					murGlace.placerMur(TypeDeMur.MURGLACE);
 					if(compteur % nombreJoueur == 0) {
 						compteur = 0;
 					}
@@ -404,8 +399,8 @@ public class Game {
 		for(int i = 0; i < tailleProgramme ; i++)
 		{
 			Cartes carte = joueurs.get(compteur-1).getProgramme().get(i);
-			System.out.println("Tortue " + tortues.get(compteur-1).getId()+ " sur la case " + tortues.get(compteur-1).getNumeroCase() + " aux coordonnées : " + tortues.get(compteur-1).getColonne() + ";" + tortues.get(compteur-1).getLigne());
-			//System.out.println("Tortue " + tortues.get(compteur).getId()+ " sur la case " + tortues.get(compteur).getNumeroCase() +  " aux coordonnées : " + tortues.get(compteur).getColonne() + ";" + tortues.get(compteur).getLigne());
+			System.out.println("Tortue " + tortues.get(compteur-1).getId()+ " sur la case " + tortues.get(compteur-1).getNumeroCase() + " aux coordonnï¿½es : " + tortues.get(compteur-1).getColonne() + ";" + tortues.get(compteur-1).getLigne());
+			//System.out.println("Tortue " + tortues.get(compteur).getId()+ " sur la case " + tortues.get(compteur).getNumeroCase() +  " aux coordonnï¿½es : " + tortues.get(compteur).getColonne() + ";" + tortues.get(compteur).getLigne());
 			carte.execute(carte, tortues.get(compteur-1));
 			
 		}

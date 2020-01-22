@@ -10,7 +10,7 @@ public class Cartes {
 	
 	public enum Type {
 		
-		Avancer("Bleu"), RotationGauche("Jaune"), RotationDroite("Violette"), Laser("Laser"), Null("VIDE");
+		AVANCER("Bleu"), ROTATIONGAUCHE("Jaune"), ROTATIONDROITE("Violette"), LASER("Laser"), NULL("VIDE");
 		
 		private String nom;
 		
@@ -44,7 +44,7 @@ public class Cartes {
 		int ligne = tortue.getLigne();
 		int numeroCase = tortue.getNumeroCase();
 		
-		if(type == Type.Avancer) {
+		if(type == Type.AVANCER) {
 					
 			if(direction == 1 && ligne < 8 ) 
 			{	
@@ -132,7 +132,7 @@ public class Cartes {
 			}			
 			System.out.println("J'avance");
 		}
-		if(type == Type.RotationGauche) {
+		if(type == Type.ROTATIONGAUCHE) {
 			
 			if(direction == 1 )
 			{
@@ -155,7 +155,7 @@ public class Cartes {
 			}			
 			System.out.println("Je tourne a gauche");
 		}
-		if(type == Type.RotationDroite) {
+		if(type == Type.ROTATIONDROITE) {
 	
 			if(direction == 1)
 			{
