@@ -22,36 +22,36 @@ public class Joueur {
 	private ArrayList<Cartes> defausse = new ArrayList<Cartes>();
 	/*private ArrayList<MurPierres> mursPierre = new ArrayList<MurPierres>();
 	private ArrayList<MurGlace> mursGlace = new ArrayList<MurGlace>();*/
-	private ArrayList<Obstacle> mursPierre = new ArrayList<Obstacle>();
-	private ArrayList<Obstacle> mursGlace = new ArrayList<Obstacle>();
+	public static ArrayList<Obstacle> mursPierre = new ArrayList<Obstacle>();
+	public static ArrayList<Obstacle> mursGlace = new ArrayList<Obstacle>();
 	
 	public Joueur(int numeroJoueur) {
 		
 		this.numeroJoueur = numeroJoueur;
 		int i = 0;
 		while(i < 18) {
-			this.pioche.add(new Cartes(Type.Avancer));
+			this.pioche.add(new Cartes(Type.AVANCER));
 			i++;
 		}
 		int j = 0;
 		while(j < 8) {
-			this.pioche.add(new Cartes(Type.RotationDroite));
-			this.pioche.add(new Cartes(Type.RotationGauche));
+			this.pioche.add(new Cartes(Type.ROTATIONDROITE));
+			this.pioche.add(new Cartes(Type.ROTATIONGAUCHE));
 			j++;
 		}
 		int k = 0;
 		while(k < 3) {
-			this.pioche.add(new Cartes(Type.Laser));
+			this.pioche.add(new Cartes(Type.LASER));
 			k++;
 		}
 		int m = 0;
 		while(m < 3) {
-			this.mursPierre.add(new Obstacle(TypeDeMur.Mur));
+			this.mursPierre.add(new Obstacle(TypeDeMur.MUR));
 			m++;
 		}
 		int n = 0;
 		while(n < 2) {
-			this.mursGlace.add(new Obstacle(TypeDeMur.MurGlace));
+			this.mursGlace.add(new Obstacle(TypeDeMur.MURGLACE));
 			n++;
 		}
 		Collections.shuffle(this.pioche);
@@ -88,7 +88,9 @@ public class Joueur {
 
 	public void defausser() {
 		
-		System.out.println("\nVoulez-vous défausser le reste de vos cartes ?");
+
+		System.out.println("Voulez-vous defausser le reste de vos cartes ?");
+
 		System.out.println("(1) Oui \n(2) Non");
 		int reponseDefausse = scanner.nextInt();
 		switch(reponseDefausse) {
@@ -97,9 +99,12 @@ public class Joueur {
 			for (int n=0;n<5;n++) {
 				if (this.pioche.isEmpty()==true) {
 					Collections.shuffle(this.defausse);
-					this.pioche = this.defausse;
+					for(int m =0; m<this.defausse.size()-1;m++) {
+						this.pioche.add(defausse.get(m));
+					}
 					this.defausse.clear();
 				}
+				
 				this.main.add(pioche.get(0));
 				this.defausse.add(pioche.get(0));
 				this.pioche.remove(pioche.get(0));
@@ -109,13 +114,16 @@ public class Joueur {
 					
 		case 2:
 			for (int i = 0;i<5;i++) {
-				if(this.pioche.isEmpty()==true) {
+				if (this.pioche.isEmpty()==true) {
 					Collections.shuffle(this.defausse);
-					this.pioche = this.defausse;
-					this.defausse.clear();
+					for(int m =0; m<this.defausse.size()-1;m++) {
+						this.pioche.add(defausse.get(m));
+					}
+					this.defausse.clear();	
 				}
+				
 				//Type type = Cartes.getType();
-				if(this.main.get(i).type == Type.Null) {
+				if(this.main.get(i).type == Type.NULL) {
 				this.main.set(i,pioche.get(0));
 				this.defausse.add(pioche.get(0));
 				this.pioche.remove(pioche.get(0));
@@ -130,13 +138,17 @@ public class Joueur {
 			defausser();
 			}
 		}
+	
 		
 		public void verificationPioche() {
-			if (this.pioche.isEmpty() == true) {
+			if (this.pioche.isEmpty()==true) {
 				Collections.shuffle(this.defausse);
-				this.pioche = this.defausse;
+				for(int m =0; m<this.defausse.size()-1;m++) {
+					this.pioche.add(defausse.get(m));
+				}
 				this.defausse.clear();
 			}
+			
 			
 		}
 		

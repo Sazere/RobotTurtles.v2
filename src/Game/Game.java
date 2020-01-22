@@ -14,9 +14,10 @@ public class Game {
 	public int nbrJoueur;
 	public int input;
 	public static int compteur = 1;
+	public static boolean victoire = false;
 	
 	Scanner scanner = new Scanner(System.in);
-	ArrayList<Joueur> joueurs = new ArrayList<Joueur>();
+	public static ArrayList<Joueur> joueurs = new ArrayList<Joueur>();
 	public static ArrayList<Tortue> tortues = new ArrayList<Tortue>();
 	
 	public Game(int nombreJoueur) {
@@ -112,27 +113,20 @@ public class Game {
 			}
 		}
 
-	public void Menu() {
-		System.out.println("Debut d'une nouvelle partie de Robot Turtles ! \n"
-						+"Creer une partie de: "
-						+ "(1) 2 Joueurs"
-						+ "(2) 3 Joueurs"
-						+ "(3) 4 Joueurs")
-		;
-	}
 		
 
 	public void start() {
 
 
 		int nombreJoueur = joueurs.size();
+		
 		String carte1 = "";
 		String carte2 = "";
 		String carte3 = "";
 		String carte4 = "";
 		String carte5 = "";
 
-		while(true) {
+		while(victoire == false) {
 			System.out.println("C'est au tour du Joueur " + compteur);
 			System.out.println("Voici votre main : ");
 			for(Cartes carte : joueurs.get(compteur-1).getMain()) {
@@ -189,7 +183,7 @@ public class Game {
 					case 1:
 						if(carte1 != "Null") {
 							joueurs.get(compteur-1).getProgramme().add(joueurs.get(compteur-1).getMain().get(0));
-							joueurs.get(compteur-1).getMain().set(0,new Cartes(Type.Null));
+							joueurs.get(compteur-1).getMain().set(0,new Cartes(Type.NULL));
 							carte1 = "Null";
 							break;
 						}else {
@@ -200,7 +194,7 @@ public class Game {
 					case 2:
 						if(carte2 != "Null") {
 							joueurs.get(compteur-1).getProgramme().add(joueurs.get(compteur-1).getMain().get(1));
-							joueurs.get(compteur-1).getMain().set(1,new Cartes(Type.Null));
+							joueurs.get(compteur-1).getMain().set(1,new Cartes(Type.NULL));
 							carte2 = "Null";
 							break;
 						}else {
@@ -210,7 +204,7 @@ public class Game {
 					case 3:
 						if(carte3 != "Null") {
 							joueurs.get(compteur-1).getProgramme().add(joueurs.get(compteur-1).getMain().get(2));
-							joueurs.get(compteur-1).getMain().set(2,new Cartes(Type.Null));
+							joueurs.get(compteur-1).getMain().set(2,new Cartes(Type.NULL));
 							carte3 = "Null";
 							break;
 						}else {
@@ -220,7 +214,7 @@ public class Game {
 					case 4:
 						if(carte4 != "Null") {
 							joueurs.get(compteur-1).getProgramme().add(joueurs.get(compteur-1).getMain().get(3));
-							joueurs.get(compteur-1).getMain().set(3,new Cartes(Type.Null));
+							joueurs.get(compteur-1).getMain().set(3,new Cartes(Type.NULL));
 							carte4 = "Null";
 							break;
 						}else {
@@ -231,14 +225,17 @@ public class Game {
 					case 5:
 						if(carte5 != "Null") {
 							joueurs.get(compteur-1).getProgramme().add(joueurs.get(compteur-1).getMain().get(4));
-							joueurs.get(compteur-1).getMain().set(4,new Cartes(Type.Null));
+							joueurs.get(compteur-1).getMain().set(4,new Cartes(Type.NULL));
 							carte5 = "Null";
 							break;
 						}else {
 							System.out.println("Vous n'avez plus de carte a cet emplacement !");
 							break;	
 						}
+					default:
+						System.out.println("Veuillez taper 1, 2, 3, 4, 5 pour le choix des cartes ou 0 si vous voulez quitter.");
 					}
+					
 					
 				}
 
@@ -254,8 +251,8 @@ public class Game {
 				switch(choixMur) {
 				
 				case 1:					
-						Obstacle murPierre = new Obstacle(TypeDeMur.Mur);
-						murPierre.placerMur(TypeDeMur.Mur);	
+						Obstacle murPierre = new Obstacle(TypeDeMur.MUR);
+						murPierre.placerMur(TypeDeMur.MUR);	
 						if(compteur % nombreJoueur == 0) {
 							compteur = 0;
 						}
@@ -264,8 +261,8 @@ public class Game {
 						//Plateau.plateau2Joueurs();
 					break;
 				case 2:
-					Obstacle murGlace = new Obstacle(TypeDeMur.MurGlace);
-					murGlace.placerMur(TypeDeMur.MurGlace);
+					Obstacle murGlace = new Obstacle(TypeDeMur.MURGLACE);
+					murGlace.placerMur(TypeDeMur.MURGLACE);
 					if(compteur % nombreJoueur == 0) {
 						compteur = 0;
 					}
@@ -278,33 +275,36 @@ public class Game {
 			case 3:
 				
 				executerProgramme();
+				if(victoire == true) {
+					break;
+				}
 				if(compteur % nombreJoueur == 0) {
 					compteur = 0;
 				}
 				compteur++;
-				updatePlateau2J();
-				//Plateau.plateau2Joueurs();
 				
-				//start();		
-				//verificationVictoire();
+				updatePlateau2J();
 				break;
 			default:
 				System.out.println("Veuillez taper 1, 2 ou 3.");
 				start();
 				}
-			System.out.println("Voici votre main : ");
-			for(Cartes carte : joueurs.get(compteur-1).getMain()) {
-				System.out.print(carte.getType().toString() + " ");
-			
+
+			if(victoire == false) {
+				System.out.println("Voici votre main : ");
+				for(Cartes carte : joueurs.get(compteur-1).getMain()) {
+					System.out.print(carte.getType().toString() + " ");
+				
 			}
-			joueurs.get(compteur-1).defausser();
-			joueurs.get(compteur-1).verificationPioche();
-		
-		if(compteur % nombreJoueur == 0) {
-			compteur = 0;
-		}
-		compteur++;
+				joueurs.get(compteur-1).defausser();
+				joueurs.get(compteur-1).verificationPioche();
+
 			
+			if(compteur % nombreJoueur == 0) {
+				compteur = 0;
+			}
+			compteur++;
+			}			
 		}			
 	}
 	public void updatePlateau2J() {
@@ -392,10 +392,31 @@ public class Game {
 			System.out.println("Tortue " + tortues.get(compteur-1).getId()+ " sur la case " + tortues.get(compteur-1).getNumeroCase() + " aux coordonn�es : " + tortues.get(compteur-1).getColonne() + ";" + tortues.get(compteur-1).getLigne());
 			//System.out.println("Tortue " + tortues.get(compteur).getId()+ " sur la case " + tortues.get(compteur).getNumeroCase() +  " aux coordonn�es : " + tortues.get(compteur).getColonne() + ";" + tortues.get(compteur).getLigne());
 			carte.execute(carte, tortues.get(compteur-1));
-			
+			if(nbrJoueur == 2) {
+				if(tortues.get(compteur-1).getNumeroCase() == 59) {
+					System.out.println("Victoire de la tortue " + tortues.get(compteur-1).getCouleurTortue());
+					victoire = true;
+					break;
+				}
+			}
+			if(nbrJoueur == 3) {
+				if(tortues.get(compteur-1).getNumeroCase() == 56 || tortues.get(compteur-1).getNumeroCase() == 59 || tortues.get(compteur-1).getNumeroCase() == 62) {
+					System.out.println("Victoire de la tortue " + tortues.get(compteur-1).getCouleurTortue());
+					victoire = true;
+					break;
+				}
+			}
+			if(nbrJoueur == 4) {
+				if(tortues.get(compteur-1).getNumeroCase() == 57 || tortues.get(compteur-1).getNumeroCase() == 62) {
+					System.out.println("Victoire de la tortue " + tortues.get(compteur-1).getCouleurTortue());
+					victoire = true;
+					break;
+				}
+			}
 		}
 		joueurs.get(compteur-1).getProgramme().clear();
 	}
+
 }
 
 
