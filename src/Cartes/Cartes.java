@@ -49,35 +49,28 @@ public class Cartes {
 					
 			if(direction == 1 && ligne < 8 ) 
 			{					
-				
 					tortue.setLigne(ligne + 1);
-					tortue.setNumeroCase(numeroCase + 8);		
-				
-			}
-			
-			else if(direction == 2 && colonne > 0)
+					tortue.setNumeroCase(numeroCase + 8);					
+			}	
+			else if(direction == 2 && colonne > 0) 
 			{
-				
+						
 					tortue.setColonne(colonne - 1);
-					tortue.setNumeroCase(numeroCase -1);		
-				
+					tortue.setNumeroCase(numeroCase -1);					
 			}
 			else if(direction == 3 && ligne > 0)
 			{
 				
 					tortue.setLigne(ligne -1);
-					tortue.setNumeroCase(numeroCase - 8);		
-				
-				
+					tortue.setNumeroCase(numeroCase - 8);					
 			}
 			else if(direction == 4 && colonne < 8)
-			{
-				
+			{			
 					tortue.setColonne(colonne + 1 );
-					tortue.setNumeroCase(numeroCase + 1);		
-				
+					tortue.setNumeroCase(numeroCase + 1);					
 			}			
 			System.out.println("J'avance");
+		}
 
 		if(type == Type.ROTATIONGAUCHE) {
 			
@@ -149,8 +142,8 @@ public class Cartes {
 			*/
 				
 		}
-		}
 	}
+
 
 	private void resetPosition(Tortue tortue) {
 
