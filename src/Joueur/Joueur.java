@@ -22,8 +22,8 @@ public class Joueur {
 	private ArrayList<Cartes> defausse = new ArrayList<Cartes>();
 	/*private ArrayList<MurPierres> mursPierre = new ArrayList<MurPierres>();
 	private ArrayList<MurGlace> mursGlace = new ArrayList<MurGlace>();*/
-	private ArrayList<Obstacle> mursPierre = new ArrayList<Obstacle>();
-	private ArrayList<Obstacle> mursGlace = new ArrayList<Obstacle>();
+	public static ArrayList<Obstacle> mursPierre = new ArrayList<Obstacle>();
+	public static ArrayList<Obstacle> mursGlace = new ArrayList<Obstacle>();
 	
 	public Joueur(int numeroJoueur) {
 		

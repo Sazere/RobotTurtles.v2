@@ -7,6 +7,7 @@ import java.util.Scanner;
 import Cartes.Cartes.Type;
 import Game.Game;
 import Game.Plateau;
+import Joueur.Joueur;
 
 public class Obstacle {
 
@@ -50,24 +51,35 @@ public class Obstacle {
 			System.out.println("Donnez la ligne du mur a construire: ");
 			ligne = scanner.nextInt();
 			
-			if(type == TypeDeMur.MUR) {
-				if(Plateau.plateauConsole[colonne-1][ligne -1] == ".")
-				{
+			if(type == TypeDeMur.MUR && Joueur.mursPierre.size() > 0) {
+				if(Game.joueurs.get(Game.compteur-1).getMursPierre().size() > 0) {
+					if(Plateau.plateauConsole[colonne-1][ligne -1] == ".")
+					{
 					//Plateau.plateauConsole[colonne-1][ligne -1] = "M";
-					numeroCaseMur = new Point(colonne-1, ligne -1);
-					murPlaces.add(numeroCaseMur);
-					System.out.println("Vous construisez un mur en ["+ colonne + "][" + ligne + "]");
-				}else {
-					System.out.println("Cette case est deja prise !");
+						numeroCaseMur = new Point(colonne-1, ligne -1);
+						murPlaces.add(numeroCaseMur);
+						Joueur.mursPierre.remove(0);
+						System.out.println("Vous construisez un mur en ["+ colonne + "][" + ligne + "]");
+					}else {
+						System.out.println("Vous n'avez plus de mur de pierre !");
+					}
+				}
+				else {
+						System.out.println("Cette case est deja prise !");
 				}
 			}
 			else if(type == TypeDeMur.MURGLACE) {
-				if(Plateau.plateauConsole[colonne-1][ligne-1] == ".")
-				{
-					//Plateau.plateauConsole[colonne-1][ligne-1] = "G";
-					numeroCaseGlace = new Point(colonne-1, ligne-1);
-					murGlacePlaces.add(numeroCaseGlace);
-					System.out.println("Vous construisez un mur de glace en ["+ colonne + "][" + ligne + "]");
+				if(Game.joueurs.get(Game.compteur-1).getMursGlace().size() > 0) {
+								
+					if(Plateau.plateauConsole[colonne-1][ligne-1] == ".")
+					{
+						numeroCaseGlace = new Point(colonne-1, ligne-1);
+						murGlacePlaces.add(numeroCaseGlace);
+						Joueur.mursGlace.remove(0);
+						System.out.println("Vous construisez un mur de glace en ["+ colonne + "][" + ligne + "]");
+					}
+				}else {
+					System.out.println("Vous n'avez plus de mur de glace !");
 				}
 			}
 			else {
