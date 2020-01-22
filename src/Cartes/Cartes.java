@@ -1,5 +1,6 @@
 package Cartes;
 
+import Game.Menu;
 import Game.Plateau;
 import Joueur.Tortue;
 
@@ -47,11 +48,7 @@ public class Cartes {
 		if(type == Type.AVANCER) {
 					
 			if(direction == 1 && ligne < 8 ) 
-			{	
-				if(Plateau.plateauConsole[colonne-1][ligne] == "O") {
-					System.out.println("----------------------VICTOIRE---------------------------");
-					Plateau.game.start();
-				}
+			{					
 				if(Plateau.plateauConsole[colonne-1][ligne] == "M" || Plateau.plateauConsole[colonne-1][ligne] == "G" ) {
 					tortue.setDirection(3);
 					System.out.println("Il y a un mur en face, vous faites demi tour !");
@@ -64,7 +61,8 @@ public class Cartes {
 					}else if(Game.Game.compteur == 4) {
 						tortue.setId("M3");
 					}
-					
+					else if(Plateau.plateauConsole[colonne-1][ligne] != "." ) {
+						resetPosition(tortue);						
 				}else {
 					tortue.setLigne(ligne + 1);
 					tortue.setNumeroCase(numeroCase + 8);		
@@ -86,7 +84,9 @@ public class Cartes {
 					}else if(Game.Game.compteur == 4) {
 						tortue.setId("M4");
 					}
-				}else {
+					else if(Plateau.plateauConsole[colonne-2][ligne-1] != "." ) {
+						resetPosition(tortue);
+					}else {
 					tortue.setColonne(colonne - 1);
 					tortue.setNumeroCase(numeroCase -1);		
 				}
@@ -105,6 +105,9 @@ public class Cartes {
 					}else if(Game.Game.compteur == 4) {
 						tortue.setId("M1");
 					}
+					else if(Plateau.plateauConsole[colonne+1][ligne] != "." ) {
+						resetPosition(tortue);
+						
 				}else {
 					tortue.setLigne(ligne -1);
 					tortue.setNumeroCase(numeroCase - 8);		
@@ -125,12 +128,17 @@ public class Cartes {
 					}else if(Game.Game.compteur == 4) {
 						tortue.setId("M2");
 					}
+				}else if(Plateau.plateauConsole[colonne][ligne-1] != "." ) {
+					resetPosition(tortue);	
 				}else {
 					tortue.setColonne(colonne + 1 );
 					tortue.setNumeroCase(numeroCase + 1);		
 				}
 			}			
 			System.out.println("J'avance");
+					}
+				}
+			}
 		}
 		if(type == Type.ROTATIONGAUCHE) {
 			
@@ -178,6 +186,88 @@ public class Cartes {
 				tortue.setId("B3");
 			}	
 			System.out.println("Je tourne a droite");
+		}
+		if(type == Type.LASER) {
+		/*	String nextCase = "";
+			if(direction == 1)
+			{
+				for(int i = tortue.getLigne(); i < 8; i++ ) {
+					nextCase = Plateau.plateauConsole[colonne-i][ligne];
+				}
+			}
+			else if(direction == 2)
+			{
+				
+			}
+			else if(direction == 3)
+			{
+				
+			}
+			else if(direction == 4)
+			{
+				
+			}
+			*/
+				
+		}
+	}
+	private void resetPosition(Tortue tortue) {
+
+		int colonne = tortue.getColonne();
+		int ligne = tortue.getLigne();
+
+		
+		if(Plateau.plateauConsole[colonne][ligne-1] != "." ) {
+
+			System.out.println("Il y a une tortue en face, vous revenez a votre position de depart !");
+			if(tortue.getCouleurTortue() == "Bleue") {
+				if(Menu.getNbrJoueur() == 2) {
+					tortue.setNumeroCase(1);
+					tortue.setDirection(1);		
+					tortue.setId("B1");
+				}else if(Menu.getNbrJoueur() == 3) {
+					tortue.setNumeroCase(0);
+					tortue.setDirection(1);		
+					tortue.setId("B1");
+				}else if(Menu.getNbrJoueur() == 4) {
+					tortue.setNumeroCase(0);
+					tortue.setDirection(1);	
+					tortue.setId("B1");
+				}
+				
+			}else if(tortue.getCouleurTortue() == "Rouge") {
+				if(Menu.getNbrJoueur() == 2) {
+					tortue.setNumeroCase(5);
+					tortue.setDirection(1);		
+					tortue.setId("R1");
+				}else if(Menu.getNbrJoueur() == 3) {
+					tortue.setNumeroCase(3);
+					tortue.setDirection(1);		
+					tortue.setId("R1");
+				}else if(Menu.getNbrJoueur() == 4) {
+					tortue.setNumeroCase(2);
+					tortue.setDirection(1);		
+					tortue.setId("R1");
+				}
+			}
+			else if(tortue.getCouleurTortue() == "Violette") {
+				if(Menu.getNbrJoueur() == 3) {
+					tortue.setNumeroCase(6);
+					tortue.setDirection(1);	
+					tortue.setId("V1");
+				}else if(Menu.getNbrJoueur() == 4) {
+					tortue.setNumeroCase(5);
+					tortue.setDirection(1);	
+					tortue.setId("V1");
+				}
+			}
+			else if(tortue.getCouleurTortue() == "Marron") {
+				if(Menu.getNbrJoueur() == 4) {
+					tortue.setNumeroCase(7);
+					tortue.setDirection(1);	
+					tortue.setId("M1");
+				}
+			}			
 		}
 	}
 } 
