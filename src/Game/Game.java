@@ -274,7 +274,8 @@ public class Game {
 							compteur = 0;
 						}
 						compteur++;
-						Plateau.plateau2Joueurs();
+						updatePlateau2J();
+						//Plateau.plateau2Joueurs();
 					break;
 				case 2:
 					Obstacle murGlace = new Obstacle(TypeDeMur.MurGlace);
@@ -294,7 +295,8 @@ public class Game {
 					compteur = 0;
 				}
 				compteur++;
-				Plateau.plateau2Joueurs();
+				updatePlateau2J();
+				//Plateau.plateau2Joueurs();
 				
 				//start();		
 				//verificationVictoire();
@@ -319,23 +321,53 @@ public class Game {
 		}			
 	}
 	public void updatePlateau2J() {
-		for(int i = 0; i < joueurs.get(1).getMursPierre().size(); i++) {
-			
-			ArrayList<Obstacle> listeObstaclePierre = new ArrayList<Obstacle>();
-			ArrayList<Integer> coordonneesMur = new ArrayList<Integer>();
-			//listeObstaclePierre.add(obstacle);
-			coordonneesMur.add(listeObstaclePierre.get(0).getLigne());
-			coordonneesMur.add(listeObstaclePierre.get(0).getColonne());
-			System.out.println("GRAND TEST" + coordonneesMur);
-	}
+		
+		
 		joueurs.get(compteur-1).getMursPierre();
 		int nbrCase = 0;
+		int nbrCaseMur = -1;
+		int nbrCaseMurGlace = -1;
+		int compteurMur = 0;
+		int compteurMurGlace = 0;
 		for(int y=0; y<8; y++){
-			for(int x=0; x<8; x++){				
+		
+			for(int x=0; x<8; x++){	
+				if(x < Obstacle.getMurPlaces().size()) {
+					 if(compteurMur < Obstacle.getMurPlaces().size() ) {
+					//System.out.println(Obstacle.getMurPlaces().get(x).x); // colonne
+					//System.out.println(Obstacle.getMurPlaces().get(x).y); // ligne
+						 int murCol = Obstacle.getMurPlaces().get(compteurMur).x;
+						 int murLigne = Obstacle.getMurPlaces().get(compteurMur).y+1;
+						 nbrCaseMur = (murLigne - 1) * 8 + murCol;			
+						 System.out.println("CALCULE");
+					//compteurMur++;
+					 }
+				}
+				if(x < Obstacle.getMurGlacePlaces().size()) {
+					if(compteurMurGlace < Obstacle.getMurGlacePlaces().size() ) {
+						//System.out.println(Obstacle.getMurPlaces().get(x).x); // colonne
+						//System.out.println(Obstacle.getMurPlaces().get(x).y); // ligne
+						int murCol = Obstacle.getMurGlacePlaces().get(compteurMurGlace).x;
+						int murLigne = Obstacle.getMurGlacePlaces().get(compteurMurGlace).y+1;
+						nbrCaseMurGlace = (murLigne - 1) * 8 + murCol;			
+						System.out.println("CALCULE GLACE");
+						//compteurMur++;
+						 }
+				}
 				if(x%7 == 0 && x!=0)
 				{					
 					Plateau.plateauConsole[x][y] = "M";					
-				}				
+				}
+				else if(nbrCase == nbrCaseMur)
+				{
+					Plateau.plateauConsole[x][y] = "M";
+					compteurMur++;
+				}
+				else if(nbrCase == nbrCaseMurGlace)
+				{
+					Plateau.plateauConsole[x][y] = "G";
+					compteurMurGlace++;
+				}
 				else if(nbrCase == 59)
 				{					
 					Plateau.plateauConsole[x][y] = "O";
@@ -355,6 +387,7 @@ public class Game {
 				nbrCase+=1;				
 			}			
 		}
+		
 		System.out.print("-------------------------- \n");
 		for(int y = 0 ; y < 8 ; y++){
 			System.out.print('|');
@@ -379,53 +412,6 @@ public class Game {
 		}
 		
 	}
-	
-
-	/*public void defausser() {
-		System.out.println("Voulez-vous défausser le reste de vos cartes ?");
-		System.out.println("(1) Oui \n(2) Non");
-		int reponseDefausse = scanner.nextInt();
-		switch(reponseDefausse) {
-		case 1:
-			setMain(new ArrayList<>());
-			for (int n=0;n<5;n++) {
-				this.main.add(pioche.get(0));
-				this.defausse.add(pioche.get(0));
-				this.pioche.remove(pioche.get(0));
-			}
-			break;
-					
-		case 2:
-			for ( int i = this.main.size();i<5;i++) {
-				this.main.add(pioche.get(0));
-				this.defausse.add(pioche.get(0));
-				this.pioche.remove(pioche.get(0));
-				}
-			break;
-	
-		default:
-			System.out.println("Veuillez répondre par oui ou par non.");
-			defausser();
-			}
-		}*/
-	/*public void completerProgramme() {
-		System.out.println(joueurs.get(compteur-1).getMain());
-		System.out.println("Quelle carte souhaitez-vous ajouter à votre programme ?");
-		System.out.println("(1) Première carte \n(2) Deuxième Carte \n(3) Troisième carte \n(4) Quatrième carte \n(5) Cinquième carte");
-		int choixCarte = scanner.nextInt();
-		switch(choixCarte) {
-		case 1:
-			joueurs.get(compteur-1).getProgramme().add(joueurs.get(compteur-1).getMain().get(0));
-		case 2:
-			joueurs.get(compteur-1).getProgramme().add(joueurs.get(compteur-1).getMain().get(1));
-		case 3:
-			joueurs.get(compteur-1).getProgramme().add(joueurs.get(compteur-1).getMain().get(2));
-		case 4:
-			joueurs.get(compteur-1).getProgramme().add(joueurs.get(compteur-1).getMain().get(3));
-		case 5:
-			joueurs.get(compteur-1).getProgramme().add(joueurs.get(compteur-1).getMain().get(4));
-		}
-	} */
 }
 
 

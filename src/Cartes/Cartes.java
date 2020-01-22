@@ -47,12 +47,18 @@ public class Cartes {
 		if(type == Type.Avancer) {
 					
 			if(direction == 1 && ligne < 7 ) 
-			{				
+			{
+				System.out.println("MUR DEVANT SALOPE");
+				if(Plateau.plateauConsole[ligne-1][colonne] == "M") {
+					tortue.setDirection(3);
+					System.out.println("MUR DEVANT SALOPE");
+				}
 				tortue.setLigne(ligne + 1);
 				tortue.setNumeroCase(numeroCase + 8);				
 			}
 			else if(direction == 2 && colonne > 0)
 			{
+				
 				tortue.setColonne(colonne - 1);
 				tortue.setNumeroCase(numeroCase -1);
 			}
