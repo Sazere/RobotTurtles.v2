@@ -102,6 +102,7 @@ public class Joueur {
 					this.pioche = this.defausse;
 					this.defausse.clear();
 				}
+				
 				this.main.add(pioche.get(0));
 				this.defausse.add(pioche.get(0));
 				this.pioche.remove(pioche.get(0));

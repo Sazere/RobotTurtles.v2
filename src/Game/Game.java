@@ -112,15 +112,6 @@ public class Game {
 			}
 		}
 
-	public void Menu() {
-		System.out.println("Debut d'une nouvelle partie de Robot Turtles ! \n"
-						+"Creer une partie de: "
-						+ "(1) 2 Joueurs"
-						+ "(2) 3 Joueurs"
-						+ "(3) 4 Joueurs")
-		;
-	}
-		
 
 	public void start() {
 
@@ -385,6 +376,7 @@ public class Game {
 		{
 			Cartes carte = joueurs.get(compteur-1).getProgramme().get(i);
 			carte.execute(carte, tortues.get(compteur-1));
+			
 		}
 		
 	}
