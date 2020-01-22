@@ -84,9 +84,7 @@ public class Cartes {
 					}else if(Game.Game.compteur == 4) {
 						tortue.setId("M4");
 					}
-					else if(Plateau.plateauConsole[colonne-2][ligne-1] != "." ) {
-						resetPosition(tortue);
-					}else {
+					else {
 					tortue.setColonne(colonne - 1);
 					tortue.setNumeroCase(numeroCase -1);		
 				}

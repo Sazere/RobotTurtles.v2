@@ -17,7 +17,7 @@ public class Game {
 	public static boolean victoire = false;
 	
 	Scanner scanner = new Scanner(System.in);
-	ArrayList<Joueur> joueurs = new ArrayList<Joueur>();
+	public static ArrayList<Joueur> joueurs = new ArrayList<Joueur>();
 	public static ArrayList<Tortue> tortues = new ArrayList<Tortue>();
 	
 	public Game(int nombreJoueur) {
@@ -25,7 +25,6 @@ public class Game {
 			this.joueurs.add(new Joueur(i+1));
 			System.out.println("Joueur " +joueurs.get(i).getJoueur());
 
-			tortues.add(new Tortue());
 			if(nombreJoueur == 2)
 			{
 				if(i == 0) {
