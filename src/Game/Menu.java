@@ -104,7 +104,4 @@ private JPanel pan = new JPanel();
 		});
 	}
 	
-	public Plateau getPlateau() {
-		return plateau;
-	}
 }
