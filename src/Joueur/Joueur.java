@@ -6,8 +6,6 @@ import Cartes.Cartes;
 import Cartes.Cartes.Type;
 
 import Game.Game;
-import Obstacles.MurGlace;
-import Obstacles.MurPierres;
 import Obstacles.Obstacle;
 import Obstacles.Obstacle.TypeDeMur;
 

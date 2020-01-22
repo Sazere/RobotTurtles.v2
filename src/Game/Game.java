@@ -407,8 +407,9 @@ public class Game {
 			System.out.println("Tortue " + tortues.get(compteur-1).getId()+ " sur la case " + tortues.get(compteur-1).getNumeroCase() + " aux coordonnées : " + tortues.get(compteur-1).getColonne() + ";" + tortues.get(compteur-1).getLigne());
 			//System.out.println("Tortue " + tortues.get(compteur).getId()+ " sur la case " + tortues.get(compteur).getNumeroCase() +  " aux coordonnées : " + tortues.get(compteur).getColonne() + ";" + tortues.get(compteur).getLigne());
 			carte.execute(carte, tortues.get(compteur-1));
+			
 		}
-		
+		joueurs.get(compteur-1).getProgramme().clear();
 	}
 }
 
