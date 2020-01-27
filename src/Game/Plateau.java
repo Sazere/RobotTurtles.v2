@@ -107,7 +107,6 @@ public class Plateau {
 		game.start();
 		
 	}
-	
 	private void plateau3Joueurs(){
 
 		int nbrCase = 0;
