@@ -325,7 +325,7 @@ public class Game {
 						nbrCaseMurGlace = (murLigne2 - 1) * 8 + murCol2;			
 						 }
 				}
-				if(x%7 == 0 && x!=0)
+				if(Menu.getNbrJoueur() < 4 && x%7 == 0 && x!=0)
 				{					
 					Plateau.plateauConsole[x][y] = "M";					
 				}
