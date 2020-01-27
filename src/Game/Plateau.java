@@ -67,46 +67,7 @@ public class Plateau {
 		game.start();	
 	
 	}
-	public static void actualiser2Joueurs(Tortue nomTortue){
-		
-		int caseActuelle = nomTortue.getNumeroCase();
-		String id = nomTortue.getId();
-		int nbrCase = 0;
-		for(int y=0; y<8; y++){
-			for(int x=0; x<8; x++){				
-				if(x%7 == 0 && x!=0)
-				{					
-					plateauConsole[x][y] = "M";					
-				}				
-				else if(nbrCase == 59)
-				{					
-					plateauConsole[x][y] = "O";
-				}
-				else if(nbrCase == caseActuelle)
-				{
-					plateauConsole[x][y] = id;
-				}
-				else
-				{
-					plateauConsole[x][y] = ".";
-				}							
-				nbrCase+=1;				
-			}	
-		}
-		System.out.print("-------------------------- \n");
-		for(int y = 0 ; y < 8 ; y++){
-			System.out.print('|');
-			for(int x = 0 ; x < 8 ; x++){
-				System.out.print(" " + plateauConsole[x][y] + " ");
-			}
-			System.out.print('|');
-			System.out.println();
-			}
-		System.out.print("-------------------------- \n");
 
-		game.start();
-		
-	}
 	private void plateau3Joueurs(){
 
 		int nbrCase = 0;
