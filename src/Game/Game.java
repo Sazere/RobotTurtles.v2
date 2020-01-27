@@ -50,24 +50,24 @@ public class Game {
 			{
 				if(i == 0) {
 					tortues.get(0).setDirection(1);
-					tortues.get(0).setLigne(0);
-					tortues.get(0).setColonne(0);
+					tortues.get(0).setLigne(1);
+					tortues.get(0).setColonne(1);
 					tortues.get(0).setNumeroCase(0);
 					tortues.get(0).setId("B1");
 					tortues.get(0).setCouleurTortue("Bleue");
 				}
 				if(i == 1) {
 					tortues.get(1).setDirection(1);
-					tortues.get(0).setLigne(0);
-					tortues.get(0).setColonne(3);
+					tortues.get(1).setLigne(1);
+					tortues.get(1).setColonne(4);
 					tortues.get(1).setNumeroCase(3);
 					tortues.get(1).setId("R1");
 					tortues.get(1).setCouleurTortue("Rouge");
 				}
 				if(i == 2) {
 					tortues.get(2).setDirection(1);
-					tortues.get(0).setLigne(0);
-					tortues.get(0).setColonne(6);
+					tortues.get(2).setLigne(1);
+					tortues.get(2).setColonne(7);
 					tortues.get(2).setNumeroCase(6);
 					tortues.get(2).setId("V1");
 					tortues.get(2).setCouleurTortue("Violette");
@@ -77,32 +77,32 @@ public class Game {
 			{
 				if(i == 0) {
 					tortues.get(0).setDirection(1);
-					tortues.get(0).setLigne(0);
-					tortues.get(0).setColonne(0);
+					tortues.get(0).setLigne(1);
+					tortues.get(0).setColonne(1);
 					tortues.get(0).setNumeroCase(0);
 					tortues.get(0).setId("B1");
 					tortues.get(0).setCouleurTortue("Bleue");
 				}
 				if(i == 1) {
 					tortues.get(1).setDirection(1);
-					tortues.get(0).setLigne(0);
-					tortues.get(0).setColonne(2);
+					tortues.get(1).setLigne(1);
+					tortues.get(1).setColonne(3);
 					tortues.get(1).setNumeroCase(2);
 					tortues.get(1).setId("R1");
 					tortues.get(1).setCouleurTortue("Rouge");
 				}
 				if(i == 2) {
 					tortues.get(2).setDirection(1);
-					tortues.get(0).setLigne(0);
-					tortues.get(0).setColonne(5);
+					tortues.get(2).setLigne(1);
+					tortues.get(2).setColonne(6);
 					tortues.get(2).setNumeroCase(5);
 					tortues.get(2).setId("V1");
 					tortues.get(2).setCouleurTortue("Violette");
 				}
 				if(i == 3) {
 					tortues.get(3).setDirection(1);
-					tortues.get(0).setLigne(0);
-					tortues.get(0).setColonne(7);
+					tortues.get(3).setLigne(1);
+					tortues.get(3).setColonne(8);
 					tortues.get(3).setNumeroCase(7);
 					tortues.get(3).setId("M1");
 					tortues.get(3).setCouleurTortue("Marron");
@@ -351,6 +351,14 @@ public class Game {
 				{				
 					Plateau.plateauConsole[x][y] = tortues.get(1).getId();
 				}
+				else if(Menu.getNbrJoueur() >=3 && nbrCase == tortues.get(2).getNumeroCase())
+				{				
+					Plateau.plateauConsole[x][y] = tortues.get(2).getId();
+				}
+				else if(Menu.getNbrJoueur() >=4 && nbrCase == tortues.get(3).getNumeroCase())
+				{				
+					Plateau.plateauConsole[x][y] = tortues.get(3).getId();
+				}
 				else
 				{
 					Plateau.plateauConsole[x][y] = ".";
@@ -379,6 +387,7 @@ public class Game {
 		for(int i = 0; i < tailleProgramme ; i++)
 		{
 			Cartes carte = joueurs.get(compteur-1).getProgramme().get(i);
+			System.out.println("Tortue " + tortues.get(2).getId()+ " sur la case " + tortues.get(2).getNumeroCase() + " aux coordonnees : " + tortues.get(2).getColonne() + ";" + tortues.get(2).getLigne());
 			System.out.println("Tortue " + tortues.get(compteur-1).getId()+ " sur la case " + tortues.get(compteur-1).getNumeroCase() + " aux coordonnees : " + tortues.get(compteur-1).getColonne() + ";" + tortues.get(compteur-1).getLigne());
 			//System.out.println("Tortue " + tortues.get(compteur).getId()+ " sur la case " + tortues.get(compteur).getNumeroCase() +  " aux coordonn�es : " + tortues.get(compteur).getColonne() + ";" + tortues.get(compteur).getLigne());
 			carte.execute(carte, tortues.get(compteur-1));
